@@ -315,10 +315,24 @@
             <a href="#authentication" class="toc-h1 toc-link" data-title="Authentication">Authentication</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#http-request" class="toc-h2 toc-link" data-title="HTTP Request">HTTP Request</a>
+                    <a href="#get-token" class="toc-h2 toc-link" data-title="Get token">Get token</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#user" class="toc-h1 toc-link" data-title="User">User</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#add-new-user" class="toc-h2 toc-link" data-title="Add new user">Add new user</a>
                   </li>
                   <li>
-                    <a href="#body" class="toc-h2 toc-link" data-title="Body">Body</a>
+                    <a href="#get-user" class="toc-h2 toc-link" data-title="Get user">Get user</a>
+                  </li>
+                  <li>
+                    <a href="#get-events-an-user-has-signed-up-for" class="toc-h2 toc-link" data-title="Get events an user has signed up for">Get events an user has signed up for</a>
+                  </li>
+                  <li>
+                    <a href="#get-events-an-user-has-created" class="toc-h2 toc-link" data-title="Get events an user has created">Get events an user has created</a>
                   </li>
               </ul>
           </li>
@@ -327,6 +341,34 @@
               <ul class="toc-list-h2">
                   <li>
                     <a href="#get-all-upcoming-events" class="toc-h2 toc-link" data-title="Get all upcoming events">Get all upcoming events</a>
+                  </li>
+                  <li>
+                    <a href="#add-new-event" class="toc-h2 toc-link" data-title="Add new event">Add new event</a>
+                  </li>
+                  <li>
+                    <a href="#get-event-details" class="toc-h2 toc-link" data-title="Get event details">Get event details</a>
+                  </li>
+                  <li>
+                    <a href="#add-an-user-to-a-date-of-an-event" class="toc-h2 toc-link" data-title="Add an user to a date of an event">Add an user to a date of an event</a>
+                  </li>
+                  <li>
+                    <a href="#remove-an-user-of-a-date-of-an-event" class="toc-h2 toc-link" data-title="Remove an user of a date of an event">Remove an user of a date of an event</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#activity" class="toc-h1 toc-link" data-title="Activity">Activity</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#get-list-of-sport-types" class="toc-h2 toc-link" data-title="Get list of sport types">Get list of sport types</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#location" class="toc-h1 toc-link" data-title="Location">Location</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#add-location" class="toc-h2 toc-link" data-title="Add location">Add location</a>
                   </li>
               </ul>
           </li>
@@ -337,7 +379,7 @@
       <div class="content">
         <h1 id='introduction'>Introduction</h1>
 <p>Welcome to the Inviplay API Reference! You can use our API to access Inviplay API endpoints, which can get upcoming events in the Inviplay network, add new users and new events.</p>
-<h1 id='authentication'>Authentication</h1>
+<h1 id='authentication'>Authentication</h1><h2 id='get-token'>Get token</h2>
 <blockquote>
 <p>First, get an access token:</p>
 </blockquote>
@@ -357,10 +399,9 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <blockquote>
-<p>To authorize api request, use the above ACCESS_TOKEN:</p>
+<p>To authorize every api request, use the above ACCESS_TOKEN:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># With shell, you can just pass the correct header with each request</span>
-curl <span class="s1">'api_endpoint_here'</span> <span class="se">\</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s1">'api_endpoint_here'</span> <span class="se">\</span>
   <span class="nt">-H</span> <span class="s1">'Authorization: Bearer ACCESS_TOKEN'</span>
 </code></pre></div>
 <blockquote>
@@ -394,7 +435,190 @@ curl <span class="s1">'api_endpoint_here'</span> <span class="se">\</span>
 <aside class="notice">
 Use x-www-form-urlendcoded as body type and replace CLIENT_ID and CLIENT_SECRET with your own client_id and client_secret
 </aside>
-<h1 id='event'>Event</h1><h2 id='get-all-upcoming-events'>Get all upcoming events</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s1">'http://api.inviplay.nl/event/upcoming'</span> <span class="se">\</span>
+<h1 id='user'>User</h1><h2 id='add-new-user'>Add new user</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST <span class="s1">'http://api.inviplay.nl/user'</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s1">'Authorization: Bearer ACCESS_TOKEN'</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+  <span class="nt">--data-raw</span> <span class="s1">'{
+  "username": "theo_janssen_79",
+  "email": "theo@inviplay.nl",
+  "firstName": "Theo",
+  "lastName": "Janssen",
+  "newsletterActivities": true,
+  "postalCode": "6821AA",
+  "rangeChoice": 5,
+  "activities": [1, 4, 11],
+  "newsletterGeneral": false,
+}'</span>
+</code></pre></div>
+<blockquote>
+<p>This returns the userId of the created user:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"userId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5243a717-7084-4c82-9ea4-7f8f08d63327"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre></div>
+<p>This endpoint creates a new user in the Inviplay database</p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>POST http://api.inviplay.nl/user</code></p>
+<h3 id='request-body'>Request body</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>username</code></td>
+<td><strong>required</strong></td>
+<td><code>String</code></td>
+<td>-</td>
+<td>Needs to be unique</td>
+</tr>
+<tr>
+<td><code>email</code></td>
+<td><strong>required</strong></td>
+<td><code>String</code></td>
+<td>-</td>
+<td>Email address can be used multiple times</td>
+</tr>
+<tr>
+<td><code>firstName</code></td>
+<td><strong>required</strong></td>
+<td><code>String</code></td>
+<td>-</td>
+<td></td>
+</tr>
+<tr>
+<td><code>lastName</code></td>
+<td><strong>required</strong></td>
+<td><code>String</code></td>
+<td>-</td>
+<td></td>
+</tr>
+<tr>
+<td><code>newsletterActivities</code></td>
+<td>optional</td>
+<td><code>Boolean</code></td>
+<td><code>false</code></td>
+<td>If a user wants to receive invites for events in his neighbourhood this needs to be <code>true</code>.</td>
+</tr>
+<tr>
+<td><code>postalCode</code></td>
+<td>optional</td>
+<td><code>String</code></td>
+<td><code>null</code></td>
+<td>If a user wants to receive invites for events this needs to be provided</td>
+</tr>
+<tr>
+<td><code>rangeChoice</code></td>
+<td>optional</td>
+<td><code>Number</code></td>
+<td><code>null</code></td>
+<td>If a user wants to receive invites for events this is the range in kilometers from his own postalCode in which he will receive invites.</td>
+</tr>
+<tr>
+<td><code>activities</code></td>
+<td>optional</td>
+<td><code>Array</code></td>
+<td><code>null</code></td>
+<td>If a user wants to receive invites for events these are the <code>activityId</code>&#39;s he wants to receive invites for</td>
+</tr>
+<tr>
+<td><code>newsletterGeneral</code></td>
+<td>optional</td>
+<td><code>Boolean</code></td>
+<td><code>false</code></td>
+<td>If a user wants to receive occasional updates about about Inviplay this needs to be <code>true</code>.</td>
+</tr>
+</tbody></table>
+<h2 id='get-user'>Get user</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s1">'http://api.inviplay.nl/user/5243a717-7084-4c82-9ea4-7f8f08d63327'</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s1">'Authorization: Bearer ACCESS_TOKEN'</span>
+<span class="o">}</span><span class="s1">'
+</span></code></pre></div>
+<blockquote>
+<p>This returns the details of the user</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"theo_janssen_79"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"theo@inviplay.nl"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"firstName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Theo"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"lastName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Janssen"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"newsletterActivities"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"postalCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6821AA"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"rangeChoice"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"activities"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">11</span><span class="p">],</span><span class="w">
+  </span><span class="nl">"newsletterGeneral"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h3 id='http-request-2'>HTTP Request</h3>
+<p><code>GET http://api.inviplay.nl/user/{{userID}}</code></p>
+<h2 id='get-events-an-user-has-signed-up-for'>Get events an user has signed up for</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s1">'http://api.inviplay.nl/user/5243a717-7084-4c82-9ea4-7f8f08d63327/events_joined'</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s1">'Authorization: Bearer ACCESS_TOKEN'</span>
+<span class="o">}</span><span class="s1">'
+</span></code></pre></div>
+<blockquote>
+<p>This returns a list of dates of events the user has signed up for</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"eventId"</span><span class="p">:</span><span class="w"> </span><span class="mi">123</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"dateId"</span><span class="p">:</span><span class="w"> </span><span class="mi">456</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"startDateTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-07-16T08:00:00+00:00"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"endDateTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-07-16T10:00:00+00:00"</span><span class="p">,</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre></div>
+<p>This request returns all the dates an user has signed up for. </p>
+<h3 id='http-request-3'>HTTP Request</h3>
+<p><code>GET http://api.inviplay.nl/user/{{userID}}/events_joined</code></p>
+<h2 id='get-events-an-user-has-created'>Get events an user has created</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s1">'http://api.inviplay.nl/user/5243a717-7084-4c82-9ea4-7f8f08d63327/events_created'</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s1">'Authorization: Bearer ACCESS_TOKEN'</span>
+<span class="o">}</span><span class="s1">'
+</span></code></pre></div>
+<blockquote>
+<p>This returns a list of events the user has created</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"eventId"</span><span class="p">:</span><span class="w"> </span><span class="mi">123</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ga je mee klimmen?"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Doe een keer vrijblijvend mee in de grootste klimhal van Arnhem"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"dates"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"startDateTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-07-16T08:00:00+00:00"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"endDateTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-07-16T10:00:00+00:00"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"numberOfParticipants"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"dateId"</span><span class="p">:</span><span class="w"> </span><span class="mi">456</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nl">"targetGroup"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+    </span><span class="nl">"maximumParticipants"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"imageUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/api/attachments/inviplay-219209.appspot.com/download/4a3f86b1-9b6f-40d9-9ec0-48e388f19a43"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"location"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"locationId"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Klimhal Mountain Network Arnhem"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"adress"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Olympus 27"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"postalCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6832 EL"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Arnhem"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"coordinates"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"lng"</span><span class="p">:</span><span class="w"> </span><span class="mf">4.692161717541481</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"lat"</span><span class="p">:</span><span class="w"> </span><span class="mf">52.67758735617635</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"activity"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Klimmen"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"activityId"</span><span class="p">:</span><span class="w"> </span><span class="mi">39</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre></div>
+<p>This request returns all the dates an user has created. </p>
+<h3 id='http-request-4'>HTTP Request</h3>
+<p><code>GET http://api.inviplay.nl/user/{{userID}}/events_created</code></p>
+<h1 id='event'>Event</h1><h2 id='get-all-upcoming-events'>Get all upcoming events</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s1">'https://api.inviplay.nl/event/upcoming?city=arnhem&amp;limit=1'</span> <span class="se">\</span>
   <span class="nt">-H</span> <span class="s1">'Authorization: Bearer ACCESS_TOKEN'</span>
 </code></pre></div>
 <blockquote>
@@ -402,26 +626,335 @@ Use x-www-form-urlendcoded as body type and replace CLIENT_ID and CLIENT_SECRET 
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
   </span><span class="p">{</span><span class="w">
-    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"klimmen"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"start"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0001-01-01T00:00:00+00:00"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"end"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0001-01-01T00:00:00+00:00"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"recurring"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sevenDays"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"maximumParticipants"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"eindelijk weer partijen"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"start"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0001-01-01T00:00:00+00:00"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"end"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0001-01-01T00:00:00+00:00"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"recurring"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sevenDays"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"maximumParticipants"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="w">
-  </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"eventId"</span><span class="p">:</span><span class="w"> </span><span class="mi">123</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ga je mee klimmen?"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Doe een keer vrijblijvend mee in de grootste klimhal van Arnhem"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"dates"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"startDateTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-07-16T08:00:00+00:00"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"endDateTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-07-16T10:00:00+00:00"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"numberOfParticipants"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"dateId"</span><span class="p">:</span><span class="w"> </span><span class="mi">456</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nl">"targetGroup"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+    </span><span class="nl">"maximumParticipants"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"imageUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/api/attachments/inviplay-219209.appspot.com/download/4a3f86b1-9b6f-40d9-9ec0-48e388f19a43"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"location"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"locationId"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Klimhal Mountain Network Arnhem"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"adress"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Olympus 27"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"postalCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6832 EL"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Arnhem"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"coordinates"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"lng"</span><span class="p">:</span><span class="w"> </span><span class="mf">4.692161717541481</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"lat"</span><span class="p">:</span><span class="w"> </span><span class="mf">52.67758735617635</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"activity"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Klimmen"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"activityId"</span><span class="p">:</span><span class="w"> </span><span class="mi">39</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre></div>
 <p>This endpoint retrieves all upcoming events.</p>
 <h3 id='http-request'>HTTP Request</h3>
-<p><code>GET http://api.inviplay.nl/event/upcoming</code></p>
+<p><code>GET https://api.inviplay.nl/event/upcoming</code></p>
+<h3 id='optional-parameters'>Optional parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>limit</td>
+<td>optional</td>
+<td><code>number</code></td>
+</tr>
+<tr>
+<td>skip</td>
+<td>optional</td>
+<td><code>number</code></td>
+</tr>
+<tr>
+<td>city</td>
+<td>optional</td>
+<td><code>string</code></td>
+</tr>
+<tr>
+<td>targetGroup</td>
+<td>optional</td>
+<td><code>number</code></td>
+</tr>
+</tbody></table>
+<h2 id='add-new-event'>Add new event</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST <span class="s1">'https://api.inviplay.nl/event'</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s1">'Authorization: Bearer ACCESS_TOKEN'</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+  <span class="nt">--data-raw</span> <span class="s1">'{
+    "name": "Ga je mee klimmen?",
+    "description": "Doe een keer vrijblijvend mee in de grootste klimhal van Arnhem",
+    "activityId": 39,
+    "locationId": 12,
+    "start": "2021-07-16T08:00:00+00:00",
+    "end": "2021-07-16T10:00:00+00:00",
+    "maximumParticipants": 4
+  }'</span>
+</code></pre></div>
+<blockquote>
+<p>The above request returns the created event id:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"eventId"</span><span class="p">:</span><span class="w"> </span><span class="mi">123</span><span class="p">,</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>Add a new event to the Inviplay database. You need to provide an userId </p>
+<h3 id='http-request-2'>HTTP Request</h3>
+<p><code>POST https://api.inviplay.nl/event</code></p>
+<h3 id='request-body'>Request body</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>userId</code></td>
+<td><strong>required</strong></td>
+<td><code>String</code></td>
+<td>-</td>
+<td>User Id of the organizer of the event</td>
+</tr>
+<tr>
+<td><code>name</code></td>
+<td><strong>required</strong></td>
+<td><code>String</code></td>
+<td>-</td>
+<td>Name of the event</td>
+</tr>
+<tr>
+<td><code>description</code></td>
+<td><strong>required</strong></td>
+<td><code>String</code></td>
+<td>-</td>
+<td>Description of the event</td>
+</tr>
+<tr>
+<td><code>activityId</code></td>
+<td><strong>required</strong></td>
+<td><code>Number</code></td>
+<td>-</td>
+<td>Id of activity</td>
+</tr>
+<tr>
+<td><code>locationId</code></td>
+<td><strong>required</strong></td>
+<td><code>Number</code></td>
+<td>-</td>
+<td>Id of location</td>
+</tr>
+<tr>
+<td><code>start</code></td>
+<td><strong>required</strong></td>
+<td><code>Date</code></td>
+<td>-</td>
+<td></td>
+</tr>
+<tr>
+<td><code>end</code></td>
+<td><strong>required</strong></td>
+<td><code>Date</code></td>
+<td>-</td>
+<td></td>
+</tr>
+<tr>
+<td><code>maximumParticipants</code></td>
+<td><strong>required</strong></td>
+<td><code>Number</code></td>
+<td><code>null</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>recurring</code></td>
+<td>optional</td>
+<td><code>String</code></td>
+<td><code>null</code></td>
+<td>Possible values: <code>sevenDays</code>, <code>fourteenDays</code>, <code>oneMonth</code>, <code>sixMonths</code>, <code>oneYear</code></td>
+</tr>
+<tr>
+<td><code>targetGroup</code></td>
+<td>optional</td>
+<td><code>Number[]</code></td>
+<td><code>null</code></td>
+<td>Array of targetGroup Id&#39;s</td>
+</tr>
+</tbody></table>
+<h2 id='get-event-details'>Get event details</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s1">'https://api.inviplay.nl/event/123'</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s1">'Authorization: Bearer ACCESS_TOKEN'</span>
+</code></pre></div>
+<blockquote>
+<p>The above request returns the following JSON:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"eventId"</span><span class="p">:</span><span class="w"> </span><span class="mi">123</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ga je mee klimmen?"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Doe een keer vrijblijvend mee in de grootste klimhal van Arnhem"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"dates"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"startDateTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-07-16T08:00:00+00:00"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"endDateTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-07-16T10:00:00+00:00"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"numberOfParticipants"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"dateId"</span><span class="p">:</span><span class="w"> </span><span class="mi">456</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nl">"targetGroup"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+  </span><span class="nl">"maximumParticipants"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"imageUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/api/attachments/inviplay-219209.appspot.com/download/4a3f86b1-9b6f-40d9-9ec0-48e388f19a43"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"location"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"locationId"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Klimhal Mountain Network Arnhem"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"adress"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Olympus 27"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"postalCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6832 EL"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Arnhem"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"coordinates"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"lng"</span><span class="p">:</span><span class="w"> </span><span class="mf">4.692161717541481</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"lat"</span><span class="p">:</span><span class="w"> </span><span class="mf">52.67758735617635</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"activity"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Klimmen"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"activityId"</span><span class="p">:</span><span class="w"> </span><span class="mi">39</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>Get the details and dates of a specific event.</p>
+<h3 id='http-request-3'>HTTP Request</h3>
+<p><code>GET https://api.inviplay.nl/event/{{eventId}}</code></p>
+<h2 id='add-an-user-to-a-date-of-an-event'>Add an user to a date of an event</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST <span class="s1">'https://api.inviplay.nl/event/123/date/456/addUser/5243a717-7084-4c82-9ea4-7f8f08d63327'</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s1">'Authorization: Bearer ACCESS_TOKEN'</span>
+</code></pre></div>
+<blockquote>
+<p>Returns success if request is successful</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>Endpoint to add an user to a date of an event</p>
+<h3 id='http-request-4'>HTTP Request</h3>
+<p><code>POST https://api.inviplay.nl/event/{{eventId}}/date/{{dateId}}/addUser/{{userId}}</code></p>
+<h2 id='remove-an-user-of-a-date-of-an-event'>Remove an user of a date of an event</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST <span class="s1">'https://api.inviplay.nl/event/123/date/456/removeUser/5243a717-7084-4c82-9ea4-7f8f08d63327'</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s1">'Authorization: Bearer ACCESS_TOKEN'</span>
+</code></pre></div>
+<blockquote>
+<p>Returns success if request is successful</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>Endpoint to remove a user of a date of an event</p>
+<h3 id='http-request-5'>HTTP Request</h3>
+<p><code>POST https://api.inviplay.nl/event/{{eventId}}/date/{{dateId}}/removeUser/{{userId}}</code></p>
+<h1 id='activity'>Activity</h1><h2 id='get-list-of-sport-types'>Get list of sport types</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s1">'https://api.inviplay.nl/activity'</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s1">'Authorization: Bearer ACCESS_TOKEN'</span> <span class="se">\</span>
+</code></pre></div>
+<blockquote>
+<p>Returns a list of activities</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Voetbal"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"defaultImageUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/api/attachments/inviplay-219209.appspot.com/download/afad6ead-ef44-4297-943b-317c0648d059.jpg"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Badminton"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"defaultImageUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/api/attachments/inviplay-219209.appspot.com/download/2cacbb5d-bf02-4cd6-8bf8-1df6fd924179.jpg"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tafeltennis"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"defaultImageUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/api/attachments/inviplay-219209.appspot.com/download/1860bea4-43fd-4270-ab03-2eb4efb3d633.jpg"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre></div>
+<p>Endpoint to get a list of possible sport types</p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>POST https://api.inviplay.nl/activity</code></p>
+<h1 id='location'>Location</h1><h2 id='add-location'>Add location</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST <span class="s1">'https://api.inviplay.nl/location'</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s1">'Authorization: Bearer ACCESS_TOKEN'</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s1">'Content-type: application/json'</span> <span class="se">\</span>
+  <span class="nt">--data-raw</span> <span class="s1">'{
+    "name": "Klimhal Mountain Network Arnhem",
+    "description": "De grootste klimhal van Arnhem"
+    "address": "Olympus 27",
+    "city": "Arnhem",
+    "postalCode": "6832EL",
+  }'</span>
+</code></pre></div>
+<blockquote>
+<p>Returns the id of the created location</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"locationId"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>Endpoint to add a location</p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>POST https://api.inviplay.nl/location</code></p>
+<h3 id='request-body'>Request body</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>name</code></td>
+<td><strong>required</strong></td>
+<td><code>String</code></td>
+<td>-</td>
+<td></td>
+</tr>
+<tr>
+<td><code>address</code></td>
+<td><strong>required</strong></td>
+<td><code>String</code></td>
+<td>-</td>
+<td></td>
+</tr>
+<tr>
+<td><code>city</code></td>
+<td><strong>required</strong></td>
+<td><code>Number</code></td>
+<td>-</td>
+<td></td>
+</tr>
+<tr>
+<td><code>postalCode</code></td>
+<td><strong>required</strong></td>
+<td><code>Date</code></td>
+<td>-</td>
+<td></td>
+</tr>
+<tr>
+<td><code>description</code></td>
+<td>optional</td>
+<td><code>String</code></td>
+<td>-</td>
+<td></td>
+</tr>
+</tbody></table>
 
       </div>
       <div class="dark-box">
