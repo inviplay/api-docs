@@ -7,7 +7,10 @@ language_tabs: # must be one of https://git.io/vQNgJ
 toc_footers:
 
 includes:
-  - event 
+  - user
+  - event
+  - activity
+  - location
 
 search: true
 
@@ -20,6 +23,7 @@ Welcome to the Inviplay API Reference! You can use our API to access Inviplay AP
 
 # Authentication
 
+## Get token
 > First, get an access token:
 
 ```shell
@@ -40,10 +44,9 @@ curl POST 'https://authentication.inviplay.nl/connect/token' \
 }
 ```
 
-> To authorize api request, use the above ACCESS_TOKEN:
+> To authorize every api request, use the above ACCESS_TOKEN:
 
 ```shell
-# With shell, you can just pass the correct header with each request
 curl 'api_endpoint_here' \
   -H 'Authorization: Bearer ACCESS_TOKEN'
 ```
