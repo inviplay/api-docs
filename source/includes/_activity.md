@@ -1,5 +1,6 @@
 # Activity
 
+An activity is the sport type in the Inviplay database. This is a list of around 50 sport types and new sports will be added now and then.
 ## Get list of sport types
 
 ```shell

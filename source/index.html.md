@@ -11,6 +11,7 @@ includes:
   - event
   - activity
   - location
+  - targetgroup
 
 search: true
 
