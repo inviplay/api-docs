@@ -360,9 +360,6 @@
                   <li>
                     <a href="#add-an-user-to-a-date-of-an-event" class="toc-h2 toc-link" data-title="Add an user to a date of an event">Add an user to a date of an event</a>
                   </li>
-                  <li>
-                    <a href="#remove-an-user-of-a-date-of-an-event" class="toc-h2 toc-link" data-title="Remove an user of a date of an event">Remove an user of a date of an event</a>
-                  </li>
               </ul>
           </li>
           <li>
@@ -877,10 +874,21 @@ Use x-www-form-urlendcoded as body type and replace CLIENT_ID and CLIENT_SECRET 
 <p>Get the details and dates of a specific event.</p>
 <h3 id='http-request-6'>HTTP Request</h3>
 <p><code>GET https://api.inviplay.nl/event/{{eventId}}</code></p>
-<h2 id='add-an-user-to-a-date-of-an-event'>Add an user to a date of an event</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST <span class="s1">'https://api.inviplay.nl/event/123/date/456/add_user/5243a717-7084-4c82-9ea4-7f8f08d63327'</span> <span class="se">\</span>
+<h2 id='add-an-user-to-a-date-of-an-event'>Add an user to a date of an event</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST <span class="s1">'https://api.inviplay.nl/event/subscribe/user'</span> <span class="se">\</span>
   <span class="nt">-H</span> <span class="s1">'Authorization: Bearer ACCESS_TOKEN'</span>
   <span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
   <span class="nt">--data-raw</span> <span class="s1">'{
+    "userId": "5243a717-7084-4c82-9ea4-7f8f08d63327",
+    "dates": [
+      {
+        "id": 456,
+        "attendance": "yes"
+      },
+      {
+        "id": 567,
+        "attendance": "no"
+      }
+    ],
     "confirmationUrl": "https://yourwebsite.com/thanks"
   }'</span>
 </code></pre></div>
@@ -889,7 +897,7 @@ Use x-www-form-urlendcoded as body type and replace CLIENT_ID and CLIENT_SECRET 
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"participant successfully signed up to date 456 of event 123"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"participant successfully signed up to date 456 and signed out of date 567 of event 123"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"redirectUrl"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
@@ -902,9 +910,9 @@ Use x-www-form-urlendcoded as body type and replace CLIENT_ID and CLIENT_SECRET 
   </span><span class="nl">"redirectUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://mollie.com/payment_link/tr_123ae3f"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
-<p>Endpoint to add an user to a date of an event</p>
+<p>Endpoint to sign up or signout an user to one or more dates of one event</p>
 <h3 id='http-request-7'>HTTP Request</h3>
-<p><code>POST https://api.inviplay.nl/event/{{eventId}}/date/{{dateId}}/add_user/5243a717-7084-4c82-9ea4-7f8f08d63327</code></p>
+<p><code>POST https://api.inviplay.nl/event/{{eventId}}/user</code></p>
 <h3 id='request-body-2'>Request body</h3>
 <table><thead>
 <tr>
@@ -916,6 +924,20 @@ Use x-www-form-urlendcoded as body type and replace CLIENT_ID and CLIENT_SECRET 
 </tr>
 </thead><tbody>
 <tr>
+<td><code>userId</code></td>
+<td><strong>required</strong></td>
+<td><code>String</code></td>
+<td>-</td>
+<td></td>
+</tr>
+<tr>
+<td><code>dates</code></td>
+<td><strong>required</strong></td>
+<td><code>Array</code></td>
+<td>-</td>
+<td>Array of object per date that needs to be updated: `{ id: [Number], attendance: [&#39;yes</td>
+</tr>
+<tr>
 <td><code>confirmationUrl</code></td>
 <td><strong>required</strong></td>
 <td><code>String</code></td>
@@ -923,21 +945,6 @@ Use x-www-form-urlendcoded as body type and replace CLIENT_ID and CLIENT_SECRET 
 <td>Url where the user needs to land after a successful payment is made</td>
 </tr>
 </tbody></table>
-<h2 id='remove-an-user-of-a-date-of-an-event'>Remove an user of a date of an event</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST <span class="s1">'https://api.inviplay.nl/event/123/date/456/remove_user/5243a717-7084-4c82-9ea4-7f8f08d63327'</span> <span class="se">\</span>
-  <span class="nt">-H</span> <span class="s1">'Authorization: Bearer ACCESS_TOKEN'</span>
-</code></pre></div>
-<blockquote>
-<p>Returns success if request is successful</p>
-</blockquote>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"participant successfully signed out of date 456 of event 123"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"redirectUrl"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div>
-<p>Endpoint to remove a user of a date of an event</p>
-<h3 id='http-request-8'>HTTP Request</h3>
-<p><code>POST https://api.inviplay.nl/event/{{eventId}}/date/{{dateId}}/remove_user/{{userId}}</code></p>
 <h1 id='activity'>Activity</h1>
 <p>An activity is the sport type in the Inviplay database. This is a list of around 50 sport types and new sports will be added now and then.</p>
 <h2 id='get-list-of-sport-types'>Get list of sport types</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s1">'https://api.inviplay.nl/activity'</span> <span class="se">\</span>
