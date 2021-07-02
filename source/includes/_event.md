@@ -182,7 +182,7 @@ Get the details and dates of a specific event.
 
 `GET https://api.inviplay.nl/event/{{eventId}}`
 
-## Add an user to a date of an event
+## Subscribe or unsubscribe an user to an event
 
 
 ```shell
@@ -234,5 +234,5 @@ Endpoint to sign up or signout an user to one or more dates of one event
 Parameter | Required | Type | Default | Description
 --------- | -------- | ---- | ------- | -----------
 `userId` | **required** | `String` | - |
-`dates` | **required** | `Array` | - | Array of object per date that needs to be updated: `{ id: [Number], attendance: ['yes | no'] }`
+`dates` | **required** | `Array` | - | Array of object per date that needs to be updated: `{ id: [Number], attendance: 'yes / no' }`
 `confirmationUrl` | **required** | `String` | - | Url where the user needs to land after a successful payment is made
