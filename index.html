@@ -358,7 +358,7 @@
                     <a href="#get-event-details" class="toc-h2 toc-link" data-title="Get event details">Get event details</a>
                   </li>
                   <li>
-                    <a href="#add-an-user-to-a-date-of-an-event" class="toc-h2 toc-link" data-title="Add an user to a date of an event">Add an user to a date of an event</a>
+                    <a href="#subscribe-or-unsubscribe-an-user-to-an-event" class="toc-h2 toc-link" data-title="Subscribe or unsubscribe an user to an event">Subscribe or unsubscribe an user to an event</a>
                   </li>
               </ul>
           </li>
@@ -874,7 +874,7 @@ Use x-www-form-urlendcoded as body type and replace CLIENT_ID and CLIENT_SECRET 
 <p>Get the details and dates of a specific event.</p>
 <h3 id='http-request-6'>HTTP Request</h3>
 <p><code>GET https://api.inviplay.nl/event/{{eventId}}</code></p>
-<h2 id='add-an-user-to-a-date-of-an-event'>Add an user to a date of an event</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST <span class="s1">'https://api.inviplay.nl/event/subscribe/user'</span> <span class="se">\</span>
+<h2 id='subscribe-or-unsubscribe-an-user-to-an-event'>Subscribe or unsubscribe an user to an event</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST <span class="s1">'https://api.inviplay.nl/event/subscribe/user'</span> <span class="se">\</span>
   <span class="nt">-H</span> <span class="s1">'Authorization: Bearer ACCESS_TOKEN'</span>
   <span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
   <span class="nt">--data-raw</span> <span class="s1">'{
@@ -935,7 +935,7 @@ Use x-www-form-urlendcoded as body type and replace CLIENT_ID and CLIENT_SECRET 
 <td><strong>required</strong></td>
 <td><code>Array</code></td>
 <td>-</td>
-<td>Array of object per date that needs to be updated: `{ id: [Number], attendance: [&#39;yes</td>
+<td>Array of object per date that needs to be updated: <code>{ id: [Number], attendance: &#39;yes / no&#39; }</code></td>
 </tr>
 <tr>
 <td><code>confirmationUrl</code></td>
