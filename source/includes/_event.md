@@ -186,10 +186,21 @@ Get the details and dates of a specific event.
 
 
 ```shell
-curl -X POST 'https://api.inviplay.nl/event/123/date/456/add_user/5243a717-7084-4c82-9ea4-7f8f08d63327' \
+curl -X POST 'https://api.inviplay.nl/event/subscribe/user' \
   -H 'Authorization: Bearer ACCESS_TOKEN'
   -H 'Content-Type: application/json' \
   --data-raw '{
+    "userId": "5243a717-7084-4c82-9ea4-7f8f08d63327",
+    "dates": [
+      {
+        "id": 456,
+        "attendance": "yes"
+      },
+      {
+        "id": 567,
+        "attendance": "no"
+      }
+    ],
     "confirmationUrl": "https://yourwebsite.com/thanks"
   }'
 ```
@@ -199,7 +210,7 @@ curl -X POST 'https://api.inviplay.nl/event/123/date/456/add_user/5243a717-7084-
 ```json
 {
   "status": "success",
-  "message": "participant successfully signed up to date 456 of event 123",
+  "message": "participant successfully signed up to date 456 and signed out of date 567 of event 123",
   "redirectUrl": null
 }
 ```
@@ -214,35 +225,14 @@ curl -X POST 'https://api.inviplay.nl/event/123/date/456/add_user/5243a717-7084-
 }
 ```
 
-Endpoint to add an user to a date of an event
+Endpoint to sign up or signout an user to one or more dates of one event
 ### HTTP Request
 
-`POST https://api.inviplay.nl/event/{{eventId}}/date/{{dateId}}/add_user/5243a717-7084-4c82-9ea4-7f8f08d63327`
+`POST https://api.inviplay.nl/event/{{eventId}}/user`
 
 ### Request body
 Parameter | Required | Type | Default | Description
 --------- | -------- | ---- | ------- | -----------
+`userId` | **required** | `String` | - |
+`dates` | **required** | `Array` | - | Array of object per date that needs to be updated: `{ id: [Number], attendance: ['yes | no'] }`
 `confirmationUrl` | **required** | `String` | - | Url where the user needs to land after a successful payment is made
-
-## Remove an user of a date of an event
-
-```shell
-curl -X POST 'https://api.inviplay.nl/event/123/date/456/remove_user/5243a717-7084-4c82-9ea4-7f8f08d63327' \
-  -H 'Authorization: Bearer ACCESS_TOKEN'
-```
-
-> Returns success if request is successful
-
-```json
-{
-  "status": "success",
-  "message": "participant successfully signed out of date 456 of event 123",
-  "redirectUrl": null
-}
-```
-
-Endpoint to remove a user of a date of an event
-### HTTP Request
-
-`POST https://api.inviplay.nl/event/{{eventId}}/date/{{dateId}}/remove_user/{{userId}}`
-
