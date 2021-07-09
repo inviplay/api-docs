@@ -182,7 +182,7 @@ Get the details and dates of a specific event.
 
 `GET https://api.inviplay.nl/event/{{eventId}}`
 
-## Subscribe or unsubscribe an user to an event
+## Subscribe or unsubscribe a user to an event
 
 
 ```shell
@@ -225,7 +225,7 @@ curl -X POST 'https://api.inviplay.nl/event/subscribe/user' \
 }
 ```
 
-Endpoint to sign up or signout an user to one or more dates of one event
+Endpoint to sign up or signout a user to one or more dates of one event
 ### HTTP Request
 
 `POST https://api.inviplay.nl/event/{{eventId}}/user`

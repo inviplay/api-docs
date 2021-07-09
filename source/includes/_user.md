@@ -74,7 +74,7 @@ curl 'http://api.inviplay.nl/user/5243a717-7084-4c82-9ea4-7f8f08d63327' \
 
 `GET http://api.inviplay.nl/user/{{userID}}`
 
-## Get events an user has signed up for
+## Get events a user has signed up for
 
 ```shell
 curl 'http://api.inviplay.nl/user/5243a717-7084-4c82-9ea4-7f8f08d63327/events_joined' \
@@ -97,12 +97,12 @@ curl 'http://api.inviplay.nl/user/5243a717-7084-4c82-9ea4-7f8f08d63327/events_jo
   }
 ]
 ```
-This request returns all the dates an user has signed up for. 
+This request returns all the dates a user has signed up for. 
 ### HTTP Request
 
 `GET http://api.inviplay.nl/user/{{userID}}/events_joined`
 
-## Get events an user has created
+## Get events a user has created
 
 ```shell
 curl 'http://api.inviplay.nl/user/5243a717-7084-4c82-9ea4-7f8f08d63327/events_created' \
@@ -148,7 +148,42 @@ curl 'http://api.inviplay.nl/user/5243a717-7084-4c82-9ea4-7f8f08d63327/events_cr
   }
 ]
 ```
-This request returns all the dates an user has created. 
+This request returns all the dates a user has created. 
 ### HTTP Request
 
 `GET http://api.inviplay.nl/user/{{userID}}/events_created`
+
+## Get locations that a user has created
+
+```shell
+curl 'http://api.inviplay.nl/user/5243a717-7084-4c82-9ea4-7f8f08d63327/locations' \
+  -H 'Authorization: Bearer ACCESS_TOKEN'
+}'
+```
+
+> This returns a list of events the user has created
+
+```json
+[
+  {
+    "adress": "Oudegracht 143",
+    "city": "Utrecht",
+    "coordinates": {
+      "lat": 52.09129938255362,
+      "lng": 5.117693057604256
+    },
+    "country": "Nederland",
+    "description": null,
+    "id": 1,
+    "image": null,
+    "imageUrl": null,
+    "name": "Utrecht centrum",
+    "postalCode": "3511 AJ"
+    },
+  }
+]
+```
+This request returns all the locations a user has created. 
+### HTTP Request
+
+`GET http://api.inviplay.nl/user/{{userID}}/locations`
