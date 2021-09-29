@@ -34,4 +34,4 @@ Endpoint to get a list of possible sport types
 
 ### HTTP Request
 
-`POST https://api.inviplay.nl/activity`
+`GET https://api.inviplay.nl/activity`
