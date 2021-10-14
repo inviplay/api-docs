@@ -13,7 +13,7 @@ curl 'https://api.inviplay.nl/event/upcoming?limit=1' \
 ```json
 [
   {
-    "eventId": 123,
+    "id": 123,
     "name": "Ga je mee klimmen?",
     "description": "Doe een keer vrijblijvend mee in de grootste klimhal van Arnhem",
     "cost": "5.00",
@@ -22,14 +22,14 @@ curl 'https://api.inviplay.nl/event/upcoming?limit=1' \
         "startDateTime": "2021-07-16T08:00:00+00:00",
         "endDateTime": "2021-07-16T10:00:00+00:00",
         "numberOfParticipants": 3,
-        "dateId": 456
+        "id": 456
       }
     ],
     "targetGroup": [],
     "maximumParticipants": 4,
     "imageUrl": "/api/attachments/inviplay-219209.appspot.com/download/4a3f86b1-9b6f-40d9-9ec0-48e388f19a43",
     "location": {
-      "locationId": 12,
+      "id": 12,
       "name": "Klimhal Mountain Network Arnhem",
       "adress": "Olympus 27",
       "postalCode": "6832 EL",
@@ -65,7 +65,7 @@ Get a list of upcoming events only in a specific city.
 
 ### HTTP Request
 
-`GET https://api.inviplay.nl/event/upcoming/city/arnhem`
+`GET https://api.inviplay.nl/event/upcoming/{city}`
 
 ## Get only events of specific sport type
 
@@ -144,7 +144,7 @@ curl 'https://api.inviplay.nl/event/123' \
 
 ```json
 {
-  "eventId": 123,
+  "id": 123,
   "name": "Ga je mee klimmen?",
   "description": "Doe een keer vrijblijvend mee in de grootste klimhal van Arnhem",
   "cost": "5.00",
@@ -153,14 +153,14 @@ curl 'https://api.inviplay.nl/event/123' \
       "startDateTime": "2021-07-16T08:00:00+00:00",
       "endDateTime": "2021-07-16T10:00:00+00:00",
       "numberOfParticipants": 1,
-      "dateId": 456
+      "id": 456
     }
   ],
   "targetGroup": [],
   "maximumParticipants": 4,
   "imageUrl": "/api/attachments/inviplay-219209.appspot.com/download/4a3f86b1-9b6f-40d9-9ec0-48e388f19a43",
   "location": {
-    "locationId": 12,
+    "id": 12,
     "name": "Klimhal Mountain Network Arnhem",
     "adress": "Olympus 27",
     "postalCode": "6832 EL",
@@ -172,7 +172,7 @@ curl 'https://api.inviplay.nl/event/123' \
   },
   "activity": {
     "name": "Klimmen",
-    "activityId": 39
+    "id": 39
   }
 }
 ```
