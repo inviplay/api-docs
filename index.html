@@ -678,7 +678,7 @@ Use x-www-form-urlendcoded as body type and replace CLIENT_ID and CLIENT_SECRET 
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
   </span><span class="p">{</span><span class="w">
-    </span><span class="nl">"eventId"</span><span class="p">:</span><span class="w"> </span><span class="mi">123</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">123</span><span class="p">,</span><span class="w">
     </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ga je mee klimmen?"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Doe een keer vrijblijvend mee in de grootste klimhal van Arnhem"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"cost"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5.00"</span><span class="p">,</span><span class="w">
@@ -687,14 +687,14 @@ Use x-www-form-urlendcoded as body type and replace CLIENT_ID and CLIENT_SECRET 
         </span><span class="nl">"startDateTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-07-16T08:00:00+00:00"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"endDateTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-07-16T10:00:00+00:00"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"numberOfParticipants"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"dateId"</span><span class="p">:</span><span class="w"> </span><span class="mi">456</span><span class="w">
+        </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">456</span><span class="w">
       </span><span class="p">}</span><span class="w">
     </span><span class="p">],</span><span class="w">
     </span><span class="nl">"targetGroup"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
     </span><span class="nl">"maximumParticipants"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
     </span><span class="nl">"imageUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/api/attachments/inviplay-219209.appspot.com/download/4a3f86b1-9b6f-40d9-9ec0-48e388f19a43"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"location"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="nl">"locationId"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w">
       </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Klimhal Mountain Network Arnhem"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"adress"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Olympus 27"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"postalCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6832 EL"</span><span class="p">,</span><span class="w">
@@ -736,7 +736,7 @@ Use x-www-form-urlendcoded as body type and replace CLIENT_ID and CLIENT_SECRET 
 <h2 id='get-only-events-in-specific-city'>Get only events in specific city</h2>
 <p>Get a list of upcoming events only in a specific city.</p>
 <h3 id='http-request-2'>HTTP Request</h3>
-<p><code>GET https://api.inviplay.nl/event/upcoming/city/arnhem</code></p>
+<p><code>GET https://api.inviplay.nl/event/upcoming/{city}</code></p>
 <h2 id='get-only-events-of-specific-sport-type'>Get only events of specific sport type</h2>
 <p>Get a list of upcoming events that has a specific sport type. You can retrieve the list of Id&#39;s with the <code>GET /activity</code> endpoint.</p>
 <h3 id='http-request-3'>HTTP Request</h3>
@@ -871,7 +871,7 @@ Use x-www-form-urlendcoded as body type and replace CLIENT_ID and CLIENT_SECRET 
 <p>The above request returns the following JSON:</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">"eventId"</span><span class="p">:</span><span class="w"> </span><span class="mi">123</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">123</span><span class="p">,</span><span class="w">
   </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ga je mee klimmen?"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Doe een keer vrijblijvend mee in de grootste klimhal van Arnhem"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"cost"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5.00"</span><span class="p">,</span><span class="w">
@@ -880,14 +880,14 @@ Use x-www-form-urlendcoded as body type and replace CLIENT_ID and CLIENT_SECRET 
       </span><span class="nl">"startDateTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-07-16T08:00:00+00:00"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"endDateTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-07-16T10:00:00+00:00"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"numberOfParticipants"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"dateId"</span><span class="p">:</span><span class="w"> </span><span class="mi">456</span><span class="w">
+      </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">456</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">],</span><span class="w">
   </span><span class="nl">"targetGroup"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
   </span><span class="nl">"maximumParticipants"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
   </span><span class="nl">"imageUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/api/attachments/inviplay-219209.appspot.com/download/4a3f86b1-9b6f-40d9-9ec0-48e388f19a43"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"location"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nl">"locationId"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w">
     </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Klimhal Mountain Network Arnhem"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"adress"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Olympus 27"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"postalCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6832 EL"</span><span class="p">,</span><span class="w">
@@ -899,7 +899,7 @@ Use x-www-form-urlendcoded as body type and replace CLIENT_ID and CLIENT_SECRET 
   </span><span class="p">},</span><span class="w">
   </span><span class="nl">"activity"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Klimmen"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"activityId"</span><span class="p">:</span><span class="w"> </span><span class="mi">39</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">39</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
