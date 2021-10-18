@@ -87,13 +87,22 @@ curl 'http://api.inviplay.nl/user/5243a717-7084-4c82-9ea4-7f8f08d63327/events_jo
 ```json
 [
   {
-    "eventId": 123,
-    "name": "Ga je mee klimmen?",
-    "description": "Doe een keer vrijblijvend mee in de grootste klimhal van Arnhem",
+    "cancelled": false,
     "cost": "5.00",
-    "dateId": 456,
-    "startDateTime": "2021-07-16T08:00:00+00:00",
-    "endDateTime": "2021-07-16T10:00:00+00:00",
+    "description": "Beschrijving",
+    "id": 1,
+    "image": {},
+    "maximumParticipants": 4,
+    "name": "Event",
+    "ownerId": 2,
+    "recurring": "none",
+    "securityHash": "ebd38645-dc1d-4ab6-87f8-84ac61cbfcb5",
+    "targetgroup": [],
+    "date": {
+      "id": 1,
+      "startDateTime": "2021-11-01T09:15:00.000Z",
+      "endDateTime": "2021-11-01T09:45:00.000Z"
+    }
   }
 ]
 ```
