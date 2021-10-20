@@ -769,7 +769,7 @@ Use x-www-form-urlendcoded as body type and replace CLIENT_ID and CLIENT_SECRET 
 <p>Add a new event to the Inviplay database. Some remarks:</p>
 
 <ul>
-<li>You need to provide an id of a location. This can only be a location that is created by the user that is creating the event.</li>
+<li>You need to provide an id of a location. This can only be a location that is created by the user who is creating the event.</li>
 <li>You need to provide an id of an activity (sports type).</li>
 <li>You can provide a list of target group id&#39;s.</li>
 <li>You can make a recurring event by specifing the <code>recurring</code> option. The API will create dates between the start date and end date looking at the value you provided in the <code>recurring</code> option. If you leave <code>recurring</code> empty, it will create one date with the provided start date and end date.</li>
@@ -847,7 +847,7 @@ Use x-www-form-urlendcoded as body type and replace CLIENT_ID and CLIENT_SECRET 
 <td>optional</td>
 <td><code>String</code></td>
 <td><code>null</code></td>
-<td>Possible values: <code>sevenDays</code>, <code>fourteenDays</code>, <code>oneMonth</code>, <code>sixMonths</code>, <code>oneYear</code></td>
+<td>Possible values: <code>7,day</code>, <code>14,day</code>, <code>1,month</code></td>
 </tr>
 <tr>
 <td><code>targetGroup</code></td>
