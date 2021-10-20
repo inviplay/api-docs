@@ -109,7 +109,7 @@ curl -X POST 'https://api.inviplay.nl/event' \
 
 Add a new event to the Inviplay database. Some remarks:
 
-- You need to provide an id of a location. This can only be a location that is created by the user that is creating the event.
+- You need to provide an id of a location. This can only be a location that is created by the user who is creating the event.
 - You need to provide an id of an activity (sports type).
 - You can provide a list of target group id's.
 - You can make a recurring event by specifing the `recurring` option. The API will create dates between the start date and end date looking at the value you provided in the `recurring` option. If you leave `recurring` empty, it will create one date with the provided start date and end date.
@@ -129,7 +129,7 @@ Parameter | Required | Type | Default | Description
 `start` | **required** | `Date` | - |
 `end` | **required** | `Date` | - |
 `maximumParticipants` | **required** | `Number` | `null` |
-`recurring` | optional | `String` | `null` | Possible values: `sevenDays`, `fourteenDays`, `oneMonth`, `sixMonths`, `oneYear`
+`recurring` | optional | `String` | `null` | Possible values: `7,day`, `14,day`, `1,month`
 `targetGroup` | optional | `Number[]` | `null` | Array of targetGroup Id's
 `cost` | optional | `String` | `null` | Format "5.00"
 
