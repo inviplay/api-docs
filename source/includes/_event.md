@@ -126,10 +126,10 @@ Parameter | Required | Type | Default | Description
 `description` | **required** | `String` | - | Description of the event
 `activityId` | **required** | `Number` | - | Id of activity
 `locationId` | **required** | `Number` | - | Id of location
-`start` | **required** | `Date` | - |
-`end` | **required** | `Date` | - |
+`start` | **required** | `Date` | - | The start date as local date
+`end` | **required** | `Date` | - | The end date as local date
 `maximumParticipants` | **required** | `Number` | `null` |
-`recurring` | optional | `String` | `null` | Possible values: `7,day`, `14,day`, `1,month`
+`recurring` | optional | `String` | `None` | Possible values: `None`,`SevenDays`, `FourteenDays`, `OneMonth`, `SixMonth`,`OneYear`. 
 `targetGroup` | optional | `Number[]` | `null` | Array of targetGroup Id's
 `cost` | optional | `String` | `null` | Format "5.00"
 
