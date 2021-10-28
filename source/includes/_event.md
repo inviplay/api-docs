@@ -89,6 +89,7 @@ curl -X POST 'https://api.inviplay.nl/event' \
   -H 'Authorization: Bearer ACCESS_TOKEN' \
   -H 'Content-Type: application/json' \
   --data-raw '{
+    "userId" 123,
     "name": "Ga je mee klimmen?",
     "description": "Doe een keer vrijblijvend mee in de grootste klimhal van Arnhem",
     "activityId": 39,
