@@ -12,6 +12,7 @@ curl -X POST 'https://api.inviplay.nl/location' \
     "address": "Olympus 27",
     "city": "Arnhem",
     "postalCode": "6832EL",
+    "country": "Nederland",
   }'
 ```
 
@@ -37,4 +38,6 @@ Parameter | Required | Type | Default | Description
 `address` | **required** | `String` | - | 
 `city` | **required** | `Number` | - | 
 `postalCode` | **required** | `Date` | - | 
-`description` | optional | `String` | - | 
+`country` | **required** | `String` | - |
+`description` | optional | `String` | - |
+
