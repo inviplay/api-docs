@@ -572,7 +572,7 @@ Use x-www-form-urlendcoded as body type and replace CLIENT_ID and CLIENT_SECRET 
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div><h3 id='http-request-2'>HTTP Request</h3>
 <p><code>GET http://api.inviplay.nl/user/{{userID}}</code></p>
-<h2 id='get-events-a-user-has-signed-up-for'>Get events a user has signed up for</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s1">'http://api.inviplay.nl/user/5243a717-7084-4c82-9ea4-7f8f08d63327/events_joined'</span> <span class="se">\</span>
+<h2 id='get-events-a-user-has-signed-up-for'>Get events a user has signed up for</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s1">'http://api.inviplay.nl/user/5243a717-7084-4c82-9ea4-7f8f08d63327/events/joined'</span> <span class="se">\</span>
   <span class="nt">-H</span> <span class="s1">'Authorization: Bearer ACCESS_TOKEN'</span>
 <span class="o">}</span><span class="s1">'
 </span></code></pre></div>
@@ -594,7 +594,7 @@ Use x-www-form-urlendcoded as body type and replace CLIENT_ID and CLIENT_SECRET 
 <p>This request returns all the dates a user has signed up for. </p>
 <h3 id='http-request-3'>HTTP Request</h3>
 <p><code>GET http://api.inviplay.nl/user/{{userID}}/events_joined</code></p>
-<h2 id='get-events-a-user-has-created'>Get events a user has created</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s1">'http://api.inviplay.nl/user/5243a717-7084-4c82-9ea4-7f8f08d63327/events_created'</span> <span class="se">\</span>
+<h2 id='get-events-a-user-has-created'>Get events a user has created</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s1">'http://api.inviplay.nl/user/5243a717-7084-4c82-9ea4-7f8f08d63327/events/created'</span> <span class="se">\</span>
   <span class="nt">-H</span> <span class="s1">'Authorization: Bearer ACCESS_TOKEN'</span>
 <span class="o">}</span><span class="s1">'
 </span></code></pre></div>
@@ -638,7 +638,7 @@ Use x-www-form-urlendcoded as body type and replace CLIENT_ID and CLIENT_SECRET 
 </span></code></pre></div>
 <p>This request returns all the dates a user has created. </p>
 <h3 id='http-request-4'>HTTP Request</h3>
-<p><code>GET http://api.inviplay.nl/user/{{userID}}/events_created</code></p>
+<p><code>GET http://api.inviplay.nl/user/{{userID}}/events/created</code></p>
 <h2 id='get-locations-that-a-user-has-created'>Get locations that a user has created</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s1">'http://api.inviplay.nl/user/5243a717-7084-4c82-9ea4-7f8f08d63327/locations'</span> <span class="se">\</span>
   <span class="nt">-H</span> <span class="s1">'Authorization: Bearer ACCESS_TOKEN'</span>
 <span class="o">}</span><span class="s1">'
