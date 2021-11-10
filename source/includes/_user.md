@@ -100,7 +100,7 @@ curl 'http://api.inviplay.nl/user/5243a717-7084-4c82-9ea4-7f8f08d63327/events/jo
 This request returns all the dates a user has signed up for. 
 ### HTTP Request
 
-`GET http://api.inviplay.nl/user/{{userID}}/events_joined`
+`GET http://api.inviplay.nl/user/{{userID}}/events/joined`
 
 ## Get events a user has created
 
