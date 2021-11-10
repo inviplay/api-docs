@@ -77,7 +77,7 @@ curl 'http://api.inviplay.nl/user/5243a717-7084-4c82-9ea4-7f8f08d63327' \
 ## Get events a user has signed up for
 
 ```shell
-curl 'http://api.inviplay.nl/user/5243a717-7084-4c82-9ea4-7f8f08d63327/events_joined' \
+curl 'http://api.inviplay.nl/user/5243a717-7084-4c82-9ea4-7f8f08d63327/events/joined' \
   -H 'Authorization: Bearer ACCESS_TOKEN'
 }'
 ```
@@ -105,7 +105,7 @@ This request returns all the dates a user has signed up for.
 ## Get events a user has created
 
 ```shell
-curl 'http://api.inviplay.nl/user/5243a717-7084-4c82-9ea4-7f8f08d63327/events_created' \
+curl 'http://api.inviplay.nl/user/5243a717-7084-4c82-9ea4-7f8f08d63327/events/created' \
   -H 'Authorization: Bearer ACCESS_TOKEN'
 }'
 ```
@@ -151,7 +151,7 @@ curl 'http://api.inviplay.nl/user/5243a717-7084-4c82-9ea4-7f8f08d63327/events_cr
 This request returns all the dates a user has created. 
 ### HTTP Request
 
-`GET http://api.inviplay.nl/user/{{userID}}/events_created`
+`GET http://api.inviplay.nl/user/{{userID}}/events/created`
 
 ## Get locations that a user has created
 
