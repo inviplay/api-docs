@@ -97,7 +97,7 @@ curl -X POST 'https://api.inviplay.nl/event' \
     "start": "2021-07-16T08:00:00+00:00",
     "end": "2021-07-16T10:00:00+00:00",
     "maximumParticipants": 4,
-    "cost": "5.00"
+    "cost": 500
   }'
 ```
 > The above request returns the created event id:
@@ -132,7 +132,7 @@ Parameter | Required | Type | Default | Description
 `maximumParticipants` | **required** | `Number` | `null` |
 `recurring` | optional | `String` | `None` | Possible values: `None`,`SevenDays`, `FourteenDays`, `OneMonth`, `SixMonth`,`OneYear`. 
 `targetGroup` | optional | `Number[]` | `null` | Array of targetGroup Id's
-`cost` | optional | `String` | `null` | Format "5.00"
+`cost` | optional | int | `null` | The costs are handled in cents
 
 ## Get event details
 
