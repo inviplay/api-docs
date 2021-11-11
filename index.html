@@ -757,7 +757,7 @@ Use x-www-form-urlendcoded as body type and replace CLIENT_ID and CLIENT_SECRET 
     "start": "2021-07-16T08:00:00+00:00",
     "end": "2021-07-16T10:00:00+00:00",
     "maximumParticipants": 4,
-    "cost": "5.00"
+    "cost": 500
   }'</span>
 </code></pre></div>
 <blockquote>
@@ -860,9 +860,9 @@ Use x-www-form-urlendcoded as body type and replace CLIENT_ID and CLIENT_SECRET 
 <tr>
 <td><code>cost</code></td>
 <td>optional</td>
-<td><code>String</code></td>
+<td>int</td>
 <td><code>null</code></td>
-<td>Format &quot;5.00&quot;</td>
+<td>The costs are handled in cents</td>
 </tr>
 </tbody></table>
 <h2 id='get-event-details'>Get event details</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s1">'https://api.inviplay.nl/event/123'</span> <span class="se">\</span>
