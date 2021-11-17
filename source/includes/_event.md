@@ -183,7 +183,7 @@ Get the details and dates of a specific event.
 
 `GET https://api.inviplay.nl/event/{{eventId}}`
 
-## Subscribe or unsubscribe a user to an event
+## Subscribe a user to an event
 
 
 ```shell
@@ -192,16 +192,7 @@ curl -X POST 'https://api.inviplay.nl/event/subscribe/user' \
   -H 'Content-Type: application/json' \
   --data-raw '{
     "userId": "5243a717-7084-4c82-9ea4-7f8f08d63327",
-    "dates": [
-      {
-        "id": 456,
-        "attendance": "yes"
-      },
-      {
-        "id": 567,
-        "attendance": "no"
-      }
-    ],
+    "dates": [456,567]
     "confirmationUrl": "https://yourwebsite.com/thanks"
   }'
 ```
@@ -226,7 +217,7 @@ curl -X POST 'https://api.inviplay.nl/event/subscribe/user' \
 }
 ```
 
-Endpoint to sign up or signout a user to one or more dates of one event
+Endpoint to subscribe or unsubcribe a user to one or more dates of one event
 ### HTTP Request
 
 `POST https://api.inviplay.nl/event/{{eventId}}/user`
@@ -235,5 +226,38 @@ Endpoint to sign up or signout a user to one or more dates of one event
 Parameter | Required | Type | Default | Description
 --------- | -------- | ---- | ------- | -----------
 `userId` | **required** | `String` | - |
-`dates` | **required** | `Array` | - | Array of object per date that needs to be updated: `{ id: [Number], attendance: 'yes / no' }`
+`dates` | **required** | `Array` | - | Array of dateId's that needs to be updated
 `confirmationUrl` | **required** | `String` | - | Url where the user needs to land after a successful payment is made
+
+## Unsubscribe a user from an event
+
+
+```shell
+curl -X POST 'https://api.inviplay.nl/event/unsubscribe/user' \
+  -H 'Authorization: Bearer ACCESS_TOKEN'
+  -H 'Content-Type: application/json' \
+  --data-raw '{
+    "userId": "5243a717-7084-4c82-9ea4-7f8f08d63327",
+    "dates": [456,567]
+  }'
+```
+
+> Returns success if request is successful
+
+```json
+{
+  "status": "success",
+  "message": "participant successfully unsubscribed from date 456 date 567 of event 123"
+}
+```
+
+Endpoint to unsubcribe a user from one or more dates of one event
+### HTTP Request
+
+`POST https://api.inviplay.nl/event/{{eventId}}/user`
+
+### Request body
+Parameter | Required | Type | Default | Description
+--------- | -------- | ---- | ------- | -----------
+`userId` | **required** | `String` | - |
+`dates` | **required** | `Array` | - | Array of dateId's that needs to be updated
