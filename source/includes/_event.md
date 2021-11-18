@@ -187,7 +187,7 @@ Get the details and dates of a specific event.
 
 
 ```shell
-curl -X POST 'https://api.inviplay.nl/event/subscribe/user' \
+curl -X PUT 'https://api.inviplay.nl/event/{{eventId}}/attendance' \
   -H 'Authorization: Bearer ACCESS_TOKEN'
   -H 'Content-Type: application/json' \
   --data-raw '{
@@ -195,11 +195,11 @@ curl -X POST 'https://api.inviplay.nl/event/subscribe/user' \
     "dates": [
       {
         "id": 456,
-        "attendance": "yes"
+        "attendance": true
       },
       {
         "id": 567,
-        "attendance": "no"
+        "attendance": false
       }
     ],
     "confirmationUrl": "https://yourwebsite.com/thanks"
@@ -229,11 +229,11 @@ curl -X POST 'https://api.inviplay.nl/event/subscribe/user' \
 Endpoint to sign up or signout a user to one or more dates of one event
 ### HTTP Request
 
-`POST https://api.inviplay.nl/event/{{eventId}}/user`
+`PUT https://api.inviplay.nl/event/{{eventId}}/attendance`
 
 ### Request body
 Parameter | Required | Type | Default | Description
 --------- | -------- | ---- | ------- | -----------
 `userId` | **required** | `String` | - |
-`dates` | **required** | `Array` | - | Array of object per date that needs to be updated: `{ id: [Number], attendance: 'yes / no' }`
+`dates` | **required** | `Array` | - | Array of object per date that needs to be updated: `{ id: [Number], attendance: true / false }`
 `confirmationUrl` | **required** | `String` | - | Url where the user needs to land after a successful payment is made
