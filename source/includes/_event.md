@@ -235,5 +235,5 @@ Endpoint to sign up or signout a user to one or more dates of one event
 Parameter | Required | Type | Default | Description
 --------- | -------- | ---- | ------- | -----------
 `userId` | **required** | `String` | - |
-`dates` | **required** | `Array` | - | Array of object per date that needs to be updated: `{ id: [Number], attendance: 'yes / no' }`
+`dates` | **required** | `Array` | - | Array of object per date that needs to be updated: `{ id: [Number], attendance: true / false }`
 `confirmationUrl` | **required** | `String` | - | Url where the user needs to land after a successful payment is made
