@@ -187,7 +187,7 @@ Get the details and dates of a specific event.
 
 
 ```shell
-curl -X PUT 'https://api.inviplay.nl/event/subscribe/user' \
+curl -X PUT 'https://api.inviplay.nl/event/{{eventId}}/attendance' \
   -H 'Authorization: Bearer ACCESS_TOKEN'
   -H 'Content-Type: application/json' \
   --data-raw '{
