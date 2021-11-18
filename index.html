@@ -907,7 +907,7 @@ Use x-www-form-urlendcoded as body type and replace CLIENT_ID and CLIENT_SECRET 
 <p>Get the details and dates of a specific event.</p>
 <h3 id='http-request-6'>HTTP Request</h3>
 <p><code>GET https://api.inviplay.nl/event/{{eventId}}</code></p>
-<h2 id='subscribe-or-unsubscribe-a-user-to-an-event'>Subscribe or unsubscribe a user to an event</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST <span class="s1">'https://api.inviplay.nl/event/subscribe/user'</span> <span class="se">\</span>
+<h2 id='subscribe-or-unsubscribe-a-user-to-an-event'>Subscribe or unsubscribe a user to an event</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> PUT <span class="s1">'https://api.inviplay.nl/event/{{eventId}}/attendance'</span> <span class="se">\</span>
   <span class="nt">-H</span> <span class="s1">'Authorization: Bearer ACCESS_TOKEN'</span>
   <span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
   <span class="nt">--data-raw</span> <span class="s1">'{
@@ -915,11 +915,11 @@ Use x-www-form-urlendcoded as body type and replace CLIENT_ID and CLIENT_SECRET 
     "dates": [
       {
         "id": 456,
-        "attendance": "yes"
+        "attendance": true
       },
       {
         "id": 567,
-        "attendance": "no"
+        "attendance": false
       }
     ],
     "confirmationUrl": "https://yourwebsite.com/thanks"
@@ -945,7 +945,7 @@ Use x-www-form-urlendcoded as body type and replace CLIENT_ID and CLIENT_SECRET 
 </span></code></pre></div>
 <p>Endpoint to sign up or signout a user to one or more dates of one event</p>
 <h3 id='http-request-7'>HTTP Request</h3>
-<p><code>POST https://api.inviplay.nl/event/{{eventId}}/user</code></p>
+<p><code>PUT https://api.inviplay.nl/event/{{eventId}}/attendance</code></p>
 <h3 id='request-body-2'>Request body</h3>
 <table><thead>
 <tr>
@@ -968,7 +968,7 @@ Use x-www-form-urlendcoded as body type and replace CLIENT_ID and CLIENT_SECRET 
 <td><strong>required</strong></td>
 <td><code>Array</code></td>
 <td>-</td>
-<td>Array of object per date that needs to be updated: <code>{ id: [Number], attendance: &#39;yes / no&#39; }</code></td>
+<td>Array of object per date that needs to be updated: <code>{ id: [Number], attendance: true / false }</code></td>
 </tr>
 <tr>
 <td><code>confirmationUrl</code></td>
