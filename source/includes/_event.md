@@ -58,6 +58,59 @@ Parameter | Required | Type
 --------- | -------- | ----
 limit | optional | `number`
 skip | optional | `number`
+## Get all upcoming events with every date as single object
+
+```shell
+curl 'https://api.inviplay.nl/event/upcoming_by_date' \
+  -H 'Authorization: Bearer ACCESS_TOKEN'
+```
+
+> The above command returns JSON structured like this:
+
+```json
+[
+  {
+    "dateId": 2776,
+    "numberOfParticipants": 0,
+    "startDateTime": "2022-02-21T09:18:00+00:00",
+    "endDateTime": "2022-02-21T09:19:00+00:00",
+    "eventId": 824,
+    "cost": 0,
+    "name": "Padel recurring",
+    "description": "",
+    "maximumParticipants": 4,
+    "location": {
+        "id": 1,
+        "name": "23",
+        "address": "Oudegracht 143",
+        "postalCode": "3511 AJ",
+        "city": "Utrecht",
+        "coordinates": {
+            "lng": 5.117693,
+            "lat": 52.0913
+        }
+    },
+    "activity": {
+        "id": 1,
+        "name": "Voetbal"
+    },
+    "imageUrl": "",
+    "targetGroup": []
+  }
+]
+```
+
+This endpoint retrieves all upcoming events with every date as single object.
+
+### HTTP Request
+
+`GET https://api.inviplay.nl/event/upcoming_by_date`
+
+### Optional parameters
+Parameter | Required | Type
+--------- | -------- | ----
+limit | optional | `number`
+skip | optional | `number`
 
 ## Get only events in specific city
 
