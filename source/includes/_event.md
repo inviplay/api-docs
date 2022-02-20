@@ -72,18 +72,18 @@ curl 'https://api.inviplay.nl/event/upcoming_by_date' \
 ```json
 [
   {
-    "dateId": 2776,
-    "numberOfParticipants": 0,
-    "startDateTime": "2022-02-21T09:18:00+00:00",
-    "endDateTime": "2022-02-21T09:19:00+00:00",
-    "eventId": 824,
-    "cost": 0,
-    "name": "Padel recurring",
-    "description": "",
+    "dateId": 3001,
+    "numberOfParticipants": 3,
+    "startDateTime": "2022-05-21T20:00:00+00:00",
+    "endDateTime": "2022-05-21T21:00:00+00:00",
+    "eventId": 600,
+    "cost": 500,
+    "name": "Potje voetballen?",
+    "description": "Doe je mee met een potje voetbal in de stad?",
     "maximumParticipants": 4,
     "location": {
         "id": 1,
-        "name": "23",
+        "name": "Kooi in de stad",
         "address": "Oudegracht 143",
         "postalCode": "3511 AJ",
         "city": "Utrecht",
@@ -97,7 +97,7 @@ curl 'https://api.inviplay.nl/event/upcoming_by_date' \
         "name": "Voetbal"
     },
     "imageUrl": "",
-    "targetGroup": []
+    "targetGroup": [2]
   }
 ]
 ```
