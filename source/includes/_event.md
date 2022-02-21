@@ -292,6 +292,57 @@ Get the details and dates of a specific event.
 
 `GET https://api.inviplay.nl/event/{{eventId}}`
 
+## Update event
+```shell
+curl -X PUT 'http://api.inviplay.nl/event/123' \
+  -H 'Authorization: Bearer ACCESS_TOKEN'
+  -H 'Content-Type: application/json' \
+  --data-raw '{
+  "name": "We gaan toch bowlen"
+}'
+```
+
+> This returns the updated event
+
+```json
+{
+  "id": 123,
+  "name": "We gaan toch bowlen",
+  "description": "Doe een keer vrijblijvend mee in de grootste klimhal van Arnhem",
+  "cost": "5.00",
+  "dates": [
+    {
+      "startDateTime": "2021-07-16T08:00:00+00:00",
+      "endDateTime": "2021-07-16T10:00:00+00:00",
+      "numberOfParticipants": 1,
+      "id": 456
+    }
+  ],
+  "targetGroup": [],
+  "maximumParticipants": 4,
+  "imageUrl": "/api/attachments/inviplay-219209.appspot.com/download/4a3f86b1-9b6f-40d9-9ec0-48e388f19a43",
+  "location": {
+    "id": 12,
+    "name": "Klimhal Mountain Network Arnhem",
+    "adress": "Olympus 27",
+    "postalCode": "6832 EL",
+    "city": "Arnhem",
+    "coordinates": {
+      "lng": 4.692161717541481,
+      "lat": 52.67758735617635
+    }
+  },
+  "activity": {
+    "name": "Klimmen",
+    "id": 39
+  }
+}
+```
+This request returns the updated event. 
+### HTTP Request
+
+`PUT http://api.inviplay.nl/event/{{eventId}}`
+
 ## Subscribe or unsubscribe a user to an event
 
 
