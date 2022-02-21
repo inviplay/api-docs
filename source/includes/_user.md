@@ -74,6 +74,37 @@ curl 'http://api.inviplay.nl/user/5243a717-7084-4c82-9ea4-7f8f08d63327' \
 
 `GET http://api.inviplay.nl/user/{{userID}}`
 
+## Update user
+```shell
+curl -X PUT 'http://api.inviplay.nl/user/5243a717-7084-4c82-9ea4-7f8f08d63327' \
+  -H 'Authorization: Bearer ACCESS_TOKEN'
+  -H 'Content-Type: application/json' \
+  --data-raw '{
+  "newsletterGeneral": true
+}'
+```
+
+> This returns the updated user
+
+```json
+{
+  "username": "theo_janssen_79",
+  "email": "theo@inviplay.nl",
+  "firstName": "Theo",
+  "lastName": "Janssen",
+  "newsletterActivities": true,
+  "postalCode": "6821AA",
+  "rangeChoice": 5,
+  "activities": [1, 4, 11],
+  "newsletterGeneral": true,
+}
+```
+This request returns the updated user. 
+### HTTP Request
+
+`PUT http://api.inviplay.nl/user/{{userID}}`
+
+
 ## Get events a user has signed up for
 
 ```shell
@@ -102,7 +133,7 @@ This request returns all the dates a user has signed up for.
 
 `GET http://api.inviplay.nl/user/{{userID}}/events/joined`
 
-## Get events a user has created
+## Get the events created by user
 
 ```shell
 curl 'http://api.inviplay.nl/user/5243a717-7084-4c82-9ea4-7f8f08d63327/events/created' \
@@ -153,7 +184,7 @@ This request returns all the dates a user has created.
 
 `GET http://api.inviplay.nl/user/{{userID}}/events/created`
 
-## Get locations that a user has created
+## Get the locations created by user
 
 ```shell
 curl 'http://api.inviplay.nl/user/5243a717-7084-4c82-9ea4-7f8f08d63327/locations' \
