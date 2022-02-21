@@ -376,13 +376,14 @@ curl -X PUT 'https://api.inviplay.nl/event/{{eventId}}/attendance' \
 }
 ```
 
-> If there is a payment needed then a payment url will be provided
+> If there is a payment needed then a payment url and payment ID will be provided
 
 ```json
 {
   "status": "pending",
   "message": "payment needed, follow redirect url to complete request",
-  "redirectUrl": "https://mollie.com/payment_link/tr_123ae3f"
+  "redirectUrl": "https://mollie.com/payment_link/tr_123ae3f",
+  "paymentId": 101
 }
 ```
 
