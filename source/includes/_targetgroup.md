@@ -32,4 +32,4 @@ Endpoint to get a list of possible targetgroups
 
 ### HTTP Request
 
-`POST https://api.inviplay.nl/targetgroup`
+`GET https://api.inviplay.nl/targetgroup`
