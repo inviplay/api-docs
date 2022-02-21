@@ -329,13 +329,16 @@
                     <a href="#get-user" class="toc-h2 toc-link" data-title="Get user">Get user</a>
                   </li>
                   <li>
+                    <a href="#update-user" class="toc-h2 toc-link" data-title="Update user">Update user</a>
+                  </li>
+                  <li>
                     <a href="#get-events-a-user-has-signed-up-for" class="toc-h2 toc-link" data-title="Get events a user has signed up for">Get events a user has signed up for</a>
                   </li>
                   <li>
-                    <a href="#get-events-a-user-has-created" class="toc-h2 toc-link" data-title="Get events a user has created">Get events a user has created</a>
+                    <a href="#get-the-events-created-by-user" class="toc-h2 toc-link" data-title="Get the events created by user">Get the events created by user</a>
                   </li>
                   <li>
-                    <a href="#get-locations-that-a-user-has-created" class="toc-h2 toc-link" data-title="Get locations that a user has created">Get locations that a user has created</a>
+                    <a href="#get-the-locations-created-by-user" class="toc-h2 toc-link" data-title="Get the locations created by user">Get the locations created by user</a>
                   </li>
               </ul>
           </li>
@@ -578,6 +581,31 @@ Use x-www-form-urlendcoded as body type and replace CLIENT_ID and CLIENT_SECRET 
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div><h3 id='http-request-2'>HTTP Request</h3>
 <p><code>GET http://api.inviplay.nl/user/{{userID}}</code></p>
+<h2 id='update-user'>Update user</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> PUT <span class="s1">'http://api.inviplay.nl/user/5243a717-7084-4c82-9ea4-7f8f08d63327'</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s1">'Authorization: Bearer ACCESS_TOKEN'</span>
+  <span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+  <span class="nt">--data-raw</span> <span class="s1">'{
+  "newsletterGeneral": true
+}'</span>
+</code></pre></div>
+<blockquote>
+<p>This returns the updated user</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"theo_janssen_79"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"theo@inviplay.nl"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"firstName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Theo"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"lastName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Janssen"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"newsletterActivities"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"postalCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6821AA"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"rangeChoice"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"activities"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">11</span><span class="p">],</span><span class="w">
+  </span><span class="nl">"newsletterGeneral"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>This request returns the updated user. </p>
+<h3 id='http-request-3'>HTTP Request</h3>
+<p><code>PUT http://api.inviplay.nl/user/{{userID}}</code></p>
 <h2 id='get-events-a-user-has-signed-up-for'>Get events a user has signed up for</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s1">'http://api.inviplay.nl/user/5243a717-7084-4c82-9ea4-7f8f08d63327/events/joined'</span> <span class="se">\</span>
   <span class="nt">-H</span> <span class="s1">'Authorization: Bearer ACCESS_TOKEN'</span>
 <span class="o">}</span><span class="s1">'
@@ -598,9 +626,9 @@ Use x-www-form-urlendcoded as body type and replace CLIENT_ID and CLIENT_SECRET 
 </span><span class="p">]</span><span class="w">
 </span></code></pre></div>
 <p>This request returns all the dates a user has signed up for. </p>
-<h3 id='http-request-3'>HTTP Request</h3>
+<h3 id='http-request-4'>HTTP Request</h3>
 <p><code>GET http://api.inviplay.nl/user/{{userID}}/events/joined</code></p>
-<h2 id='get-events-a-user-has-created'>Get events a user has created</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s1">'http://api.inviplay.nl/user/5243a717-7084-4c82-9ea4-7f8f08d63327/events/created'</span> <span class="se">\</span>
+<h2 id='get-the-events-created-by-user'>Get the events created by user</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s1">'http://api.inviplay.nl/user/5243a717-7084-4c82-9ea4-7f8f08d63327/events/created'</span> <span class="se">\</span>
   <span class="nt">-H</span> <span class="s1">'Authorization: Bearer ACCESS_TOKEN'</span>
 <span class="o">}</span><span class="s1">'
 </span></code></pre></div>
@@ -643,9 +671,9 @@ Use x-www-form-urlendcoded as body type and replace CLIENT_ID and CLIENT_SECRET 
 </span><span class="p">]</span><span class="w">
 </span></code></pre></div>
 <p>This request returns all the dates a user has created. </p>
-<h3 id='http-request-4'>HTTP Request</h3>
+<h3 id='http-request-5'>HTTP Request</h3>
 <p><code>GET http://api.inviplay.nl/user/{{userID}}/events/created</code></p>
-<h2 id='get-locations-that-a-user-has-created'>Get locations that a user has created</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s1">'http://api.inviplay.nl/user/5243a717-7084-4c82-9ea4-7f8f08d63327/locations'</span> <span class="se">\</span>
+<h2 id='get-the-locations-created-by-user'>Get the locations created by user</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s1">'http://api.inviplay.nl/user/5243a717-7084-4c82-9ea4-7f8f08d63327/locations'</span> <span class="se">\</span>
   <span class="nt">-H</span> <span class="s1">'Authorization: Bearer ACCESS_TOKEN'</span>
 <span class="o">}</span><span class="s1">'
 </span></code></pre></div>
@@ -672,7 +700,7 @@ Use x-www-form-urlendcoded as body type and replace CLIENT_ID and CLIENT_SECRET 
 </span><span class="p">]</span><span class="w">
 </span></code></pre></div>
 <p>This request returns all the locations a user has created. </p>
-<h3 id='http-request-5'>HTTP Request</h3>
+<h3 id='http-request-6'>HTTP Request</h3>
 <p><code>GET http://api.inviplay.nl/user/{{userID}}/locations</code></p>
 <h1 id='event'>Event</h1>
 <p>An event is the main object in the Inviplay ecosystem. It holds al the characteristics of an event, but not the start date and end date. These are stored sepperately in a <code>dates</code> table. This way an event can have multiple dates to make it possible to create recurring dates that belong to the same event.</p>
