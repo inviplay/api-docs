@@ -43,7 +43,8 @@ curl 'https://api.inviplay.nl/event/upcoming?limit=1' \
     "activity": {
       "name": "Klimmen",
       "activityId": 39
-    }
+    },
+    "recurring": "None"
   }
 ]
 ```
@@ -283,7 +284,8 @@ curl 'https://api.inviplay.nl/event/123' \
   "activity": {
     "name": "Klimmen",
     "id": 39
-  }
+  },
+  "recurring": "None"
 }
 ```
 
