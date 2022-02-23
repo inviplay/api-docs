@@ -300,50 +300,44 @@ curl -X PUT 'http://api.inviplay.nl/event/123' \
   -H 'Authorization: Bearer ACCESS_TOKEN'
   -H 'Content-Type: application/json' \
   --data-raw '{
-  "name": "We gaan toch bowlen"
+    "userId": "f0ce58dc-7861-4307-a86d-090d3941376d",
+    "name": "Title of this event",
+    "description": "Description of this event",
+    "activityId": 47,
+    "locationId": 1,
+    "maximumParticipants": 4,
+    "targetGroup": [1],
+    "cost": 300
 }'
 ```
 
-> This returns the updated event
+> This returns the id of the updated event
 
 ```json
 {
-  "id": 123,
-  "name": "We gaan toch bowlen",
-  "description": "Doe een keer vrijblijvend mee in de grootste klimhal van Arnhem",
-  "cost": "5.00",
-  "dates": [
-    {
-      "startDateTime": "2021-07-16T08:00:00+00:00",
-      "endDateTime": "2021-07-16T10:00:00+00:00",
-      "numberOfParticipants": 1,
-      "id": 456
-    }
-  ],
-  "targetGroup": [],
-  "maximumParticipants": 4,
-  "imageUrl": "/api/attachments/inviplay-219209.appspot.com/download/4a3f86b1-9b6f-40d9-9ec0-48e388f19a43",
-  "location": {
-    "id": 12,
-    "name": "Klimhal Mountain Network Arnhem",
-    "adress": "Olympus 27",
-    "postalCode": "6832 EL",
-    "city": "Arnhem",
-    "coordinates": {
-      "lng": 4.692161717541481,
-      "lat": 52.67758735617635
-    }
-  },
-  "activity": {
-    "name": "Klimmen",
-    "id": 39
-  }
+  "id": 123
 }
 ```
 This request returns the updated event. 
 ### HTTP Request
 
 `PUT http://api.inviplay.nl/event/{{eventId}}`
+
+The following fields are the ones that can be changed.
+
+### Request body
+Parameter | Required | Type | Default | Description
+--------- | -------- | ---- | ------- | -----------
+`userId` | **required** | `String` | - | User Id of the organizer of the event
+`name` | **required** | `String` | - | Name of the event
+`description` | **required** | `String` | - | Description of the event
+`activityId` | **required** | `Number` | - | Id of activity
+`locationId` | **required** | `Number` | - | Id of location
+`maximumParticipants` | **required** | `Number` | - |
+`targetGroup` | optional | `Number[]` | `null` | Array of targetGroup Id's
+`cost` | optional | int | `null` | The costs are handled in cents
+
+You have to PUT all of the above fields also if they are not changed, since the complete object will be replaced. If a field is not provided the default value will be stored.
 
 ## Subscribe or unsubscribe a user to an event
 
