@@ -1068,48 +1068,97 @@ Use x-www-form-urlendcoded as body type and replace CLIENT_ID and CLIENT_SECRET 
   <span class="nt">-H</span> <span class="s1">'Authorization: Bearer ACCESS_TOKEN'</span>
   <span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
   <span class="nt">--data-raw</span> <span class="s1">'{
-  "name": "We gaan toch bowlen"
+    "userId": "f0ce58dc-7861-4307-a86d-090d3941376d",
+    "name": "Title of this event",
+    "description": "Description of this event",
+    "activityId": 47,
+    "locationId": 1,
+    "maximumParticipants": 4,
+    "targetGroup": [1],
+    "cost": 300
 }'</span>
 </code></pre></div>
 <blockquote>
-<p>This returns the updated event</p>
+<p>This returns the id of the updated event</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">123</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"We gaan toch bowlen"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Doe een keer vrijblijvend mee in de grootste klimhal van Arnhem"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"cost"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5.00"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"dates"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="nl">"startDateTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-07-16T08:00:00+00:00"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"endDateTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-07-16T10:00:00+00:00"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"numberOfParticipants"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">456</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-  </span><span class="p">],</span><span class="w">
-  </span><span class="nl">"targetGroup"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
-  </span><span class="nl">"maximumParticipants"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"imageUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/api/attachments/inviplay-219209.appspot.com/download/4a3f86b1-9b6f-40d9-9ec0-48e388f19a43"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"location"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Klimhal Mountain Network Arnhem"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"adress"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Olympus 27"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"postalCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6832 EL"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Arnhem"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"coordinates"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="nl">"lng"</span><span class="p">:</span><span class="w"> </span><span class="mf">4.692161717541481</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"lat"</span><span class="p">:</span><span class="w"> </span><span class="mf">52.67758735617635</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="nl">"activity"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Klimmen"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">39</span><span class="w">
-  </span><span class="p">}</span><span class="w">
+  </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">123</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>This request returns the updated event. </p>
 <h3 id='http-request-9'>HTTP Request</h3>
 <p><code>PUT http://api.inviplay.nl/event/{{eventId}}</code></p>
+
+<p>The following fields are the ones that can be changed.</p>
+<h3 id='request-body-2'>Request body</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>userId</code></td>
+<td><strong>required</strong></td>
+<td><code>String</code></td>
+<td>-</td>
+<td>User Id of the organizer of the event</td>
+</tr>
+<tr>
+<td><code>name</code></td>
+<td><strong>required</strong></td>
+<td><code>String</code></td>
+<td>-</td>
+<td>Name of the event</td>
+</tr>
+<tr>
+<td><code>description</code></td>
+<td><strong>required</strong></td>
+<td><code>String</code></td>
+<td>-</td>
+<td>Description of the event</td>
+</tr>
+<tr>
+<td><code>activityId</code></td>
+<td><strong>required</strong></td>
+<td><code>Number</code></td>
+<td>-</td>
+<td>Id of activity</td>
+</tr>
+<tr>
+<td><code>locationId</code></td>
+<td><strong>required</strong></td>
+<td><code>Number</code></td>
+<td>-</td>
+<td>Id of location</td>
+</tr>
+<tr>
+<td><code>maximumParticipants</code></td>
+<td><strong>required</strong></td>
+<td><code>Number</code></td>
+<td>-</td>
+<td></td>
+</tr>
+<tr>
+<td><code>targetGroup</code></td>
+<td>optional</td>
+<td><code>Number[]</code></td>
+<td><code>null</code></td>
+<td>Array of targetGroup Id&#39;s</td>
+</tr>
+<tr>
+<td><code>cost</code></td>
+<td>optional</td>
+<td>int</td>
+<td><code>null</code></td>
+<td>The costs are handled in cents</td>
+</tr>
+</tbody></table>
+
+<p>You have to PUT all of the above fields also if they are not changed, since the complete object will be replaced. If a field is not provided the default value will be stored.</p>
 <h2 id='subscribe-or-unsubscribe-a-user-to-an-event'>Subscribe or unsubscribe a user to an event</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> PUT <span class="s1">'https://api.inviplay.nl/event/{{eventId}}/attendance'</span> <span class="se">\</span>
   <span class="nt">-H</span> <span class="s1">'Authorization: Bearer ACCESS_TOKEN'</span>
   <span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
@@ -1150,7 +1199,7 @@ Use x-www-form-urlendcoded as body type and replace CLIENT_ID and CLIENT_SECRET 
 <p>Endpoint to sign up or signout a user to one or more dates of one event</p>
 <h3 id='http-request-10'>HTTP Request</h3>
 <p><code>PUT https://api.inviplay.nl/event/{{eventId}}/attendance</code></p>
-<h3 id='request-body-2'>Request body</h3>
+<h3 id='request-body-3'>Request body</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
