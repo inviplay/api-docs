@@ -83,11 +83,10 @@ curl -X PUT 'http://api.inviplay.nl/user/5243a717-7084-4c82-9ea4-7f8f08d63327' \
     "email": "lennert@inviplay.nl",
     "firstName": "Lennert",
     "lastName": "Molema",
-    "newsletterActivities": false,
     "postalCode": "3555BA",
     "rangeChoice": 25,
     "activities": [ 10, 11 ],
-    "newsletterActivities": true,
+    "newsletterActivities": false,
     "newsletterGeneral": false
 }'
 ```
@@ -97,14 +96,13 @@ curl -X PUT 'http://api.inviplay.nl/user/5243a717-7084-4c82-9ea4-7f8f08d63327' \
 ```json
 {
   "email": "lennert@inviplay.nl",
-    "firstName": "Lennert",
-    "lastName": "Molema",
-    "newsletterActivities": false,
-    "postalCode": "3555BA",
-    "rangeChoice": 25,
-    "activities": [ 10, 11 ],
-    "newsletterActivities": true,
-    "newsletterGeneral": false
+  "firstName": "Lennert",
+  "lastName": "Molema",
+  "postalCode": "3555BA",
+  "rangeChoice": 25,
+  "activities": [ 10, 11 ],
+  "newsletterActivities": false,
+  "newsletterGeneral": false
 }
 ```
 This request returns the updated user. 
@@ -112,6 +110,21 @@ This request returns the updated user.
 
 `PUT http://api.inviplay.nl/user/{{userID}}`
 
+The following fields are the ones that can be changed.
+
+### Request body
+Parameter | Required | Type | Default | Description
+--------- | -------- | ---- | ------- | -----------
+`email` | **required** | `String` | - |
+`firstName` | **required** | `String` | - |
+`lastName` | **required** | `String` | - |
+`newsletterActivities` | optional | `Boolean` | `false`
+`postalCode` | optional | `String` | `null` 
+`rangeChoice` | optional | `Number` | `null`
+`activities` | optional | `Array` | `null`
+`newsletterGeneral` | optional | `Boolean`
+
+You have to PUT all of the above fields also if they are not changed, since the complete object will be replaced. If a field is not provided the default value will be stored.
 
 ## Get events a user has signed up for
 
