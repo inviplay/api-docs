@@ -591,11 +591,10 @@ Use x-www-form-urlendcoded as body type and replace CLIENT_ID and CLIENT_SECRET 
     "email": "lennert@inviplay.nl",
     "firstName": "Lennert",
     "lastName": "Molema",
-    "newsletterActivities": false,
     "postalCode": "3555BA",
     "rangeChoice": 25,
     "activities": [ 10, 11 ],
-    "newsletterActivities": true,
+    "newsletterActivities": false,
     "newsletterGeneral": false
 }'</span>
 </code></pre></div>
@@ -604,19 +603,89 @@ Use x-www-form-urlendcoded as body type and replace CLIENT_ID and CLIENT_SECRET 
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"lennert@inviplay.nl"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"firstName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Lennert"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"lastName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Molema"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"newsletterActivities"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"postalCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3555BA"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"rangeChoice"</span><span class="p">:</span><span class="w"> </span><span class="mi">25</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"activities"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">11</span><span class="w"> </span><span class="p">],</span><span class="w">
-    </span><span class="nl">"newsletterActivities"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"newsletterGeneral"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+  </span><span class="nl">"firstName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Lennert"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"lastName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Molema"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"postalCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3555BA"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"rangeChoice"</span><span class="p">:</span><span class="w"> </span><span class="mi">25</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"activities"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">11</span><span class="w"> </span><span class="p">],</span><span class="w">
+  </span><span class="nl">"newsletterActivities"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"newsletterGeneral"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>This request returns the updated user. </p>
 <h3 id='http-request-3'>HTTP Request</h3>
 <p><code>PUT http://api.inviplay.nl/user/{{userID}}</code></p>
+
+<p>The following fields are the ones that can be changed.</p>
+<h3 id='request-body-2'>Request body</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>email</code></td>
+<td><strong>required</strong></td>
+<td><code>String</code></td>
+<td>-</td>
+<td></td>
+</tr>
+<tr>
+<td><code>firstName</code></td>
+<td><strong>required</strong></td>
+<td><code>String</code></td>
+<td>-</td>
+<td></td>
+</tr>
+<tr>
+<td><code>lastName</code></td>
+<td><strong>required</strong></td>
+<td><code>String</code></td>
+<td>-</td>
+<td></td>
+</tr>
+<tr>
+<td><code>newsletterActivities</code></td>
+<td>optional</td>
+<td><code>Boolean</code></td>
+<td><code>false</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>postalCode</code></td>
+<td>optional</td>
+<td><code>String</code></td>
+<td><code>null</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>rangeChoice</code></td>
+<td>optional</td>
+<td><code>Number</code></td>
+<td><code>null</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>activities</code></td>
+<td>optional</td>
+<td><code>Array</code></td>
+<td><code>null</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>newsletterGeneral</code></td>
+<td>optional</td>
+<td><code>Boolean</code></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+
+<p>You have to PUT all of the above fields also if they are not changed, since the complete object will be replaced. If a field is not provided the default value will be stored.</p>
 <h2 id='get-events-a-user-has-signed-up-for'>Get events a user has signed up for</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s1">'http://api.inviplay.nl/user/5243a717-7084-4c82-9ea4-7f8f08d63327/events/joined'</span> <span class="se">\</span>
   <span class="nt">-H</span> <span class="s1">'Authorization: Bearer ACCESS_TOKEN'</span>
 <span class="o">}</span><span class="s1">'
