@@ -80,7 +80,15 @@ curl -X PUT 'http://api.inviplay.nl/user/5243a717-7084-4c82-9ea4-7f8f08d63327' \
   -H 'Authorization: Bearer ACCESS_TOKEN'
   -H 'Content-Type: application/json' \
   --data-raw '{
-  "newsletterGeneral": true
+    "email": "lennert@inviplay.nl",
+    "firstName": "Lennert",
+    "lastName": "Molema",
+    "newsletterActivities": false,
+    "postalCode": "3555BA",
+    "rangeChoice": 25,
+    "activities": [ 10, 11 ],
+    "newsletterActivities": true,
+    "newsletterGeneral": false
 }'
 ```
 
@@ -88,15 +96,15 @@ curl -X PUT 'http://api.inviplay.nl/user/5243a717-7084-4c82-9ea4-7f8f08d63327' \
 
 ```json
 {
-  "username": "theo_janssen_79",
-  "email": "theo@inviplay.nl",
-  "firstName": "Theo",
-  "lastName": "Janssen",
-  "newsletterActivities": true,
-  "postalCode": "6821AA",
-  "rangeChoice": 5,
-  "activities": [1, 4, 11],
-  "newsletterGeneral": true,
+  "email": "lennert@inviplay.nl",
+    "firstName": "Lennert",
+    "lastName": "Molema",
+    "newsletterActivities": false,
+    "postalCode": "3555BA",
+    "rangeChoice": 25,
+    "activities": [ 10, 11 ],
+    "newsletterActivities": true,
+    "newsletterGeneral": false
 }
 ```
 This request returns the updated user. 
