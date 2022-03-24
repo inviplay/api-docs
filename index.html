@@ -588,22 +588,30 @@ Use x-www-form-urlendcoded as body type and replace CLIENT_ID and CLIENT_SECRET 
   <span class="nt">-H</span> <span class="s1">'Authorization: Bearer ACCESS_TOKEN'</span>
   <span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
   <span class="nt">--data-raw</span> <span class="s1">'{
-  "newsletterGeneral": true
+    "email": "lennert@inviplay.nl",
+    "firstName": "Lennert",
+    "lastName": "Molema",
+    "newsletterActivities": false,
+    "postalCode": "3555BA",
+    "rangeChoice": 25,
+    "activities": [ 10, 11 ],
+    "newsletterActivities": true,
+    "newsletterGeneral": false
 }'</span>
 </code></pre></div>
 <blockquote>
 <p>This returns the updated user</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"theo_janssen_79"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"theo@inviplay.nl"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"firstName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Theo"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"lastName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Janssen"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"newsletterActivities"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"postalCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6821AA"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"rangeChoice"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"activities"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">11</span><span class="p">],</span><span class="w">
-  </span><span class="nl">"newsletterGeneral"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"lennert@inviplay.nl"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"firstName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Lennert"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"lastName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Molema"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"newsletterActivities"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"postalCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3555BA"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"rangeChoice"</span><span class="p">:</span><span class="w"> </span><span class="mi">25</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"activities"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">11</span><span class="w"> </span><span class="p">],</span><span class="w">
+    </span><span class="nl">"newsletterActivities"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"newsletterGeneral"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>This request returns the updated user. </p>
