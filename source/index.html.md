@@ -12,6 +12,7 @@ includes:
   - activity
   - location
   - targetgroup
+  - payment
 
 search: true
 
