@@ -12,17 +12,15 @@ curl 'https://api.inviplay.nl/payment/{{paymentId}}/status/user/{{userId}}' \
 ```json
 "paid"
 ```
+> Possible values that can be returned:
+```js
+open | failed | paid | canceled | expired | processing | refunded
+```
 
 Endpoint to get the status of a payment.
 
 Possible values:
-open
-failed
-paid
-canceled
-expired
-processing
-refunded
+
 
 ### HTTP Request
 
