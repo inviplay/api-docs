@@ -13,7 +13,8 @@ curl 'https://api.inviplay.nl/payment/{{paymentId}}/status/user/{{userId}}' \
 "paid"
 ```
 > Possible values that can be returned:
-```js
+
+```
 open | failed | paid | canceled | expired | processing | refunded
 ```
 
