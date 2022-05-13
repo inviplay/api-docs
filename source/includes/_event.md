@@ -175,7 +175,7 @@ Get a list of upcoming events only in a specific city.
 
 ### HTTP Request
 
-`GET https://api.inviplay.nl/event/upcoming/{city}`
+`GET https://api.inviplay.nl/event/upcoming?city={city}`
 
 ## Get only events of specific sport type
 
