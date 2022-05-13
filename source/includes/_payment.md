@@ -19,9 +19,6 @@ open | failed | paid | canceled | expired | processing | refunded
 
 Endpoint to get the status of a payment.
 
-Possible values:
-
-
 ### HTTP Request
 
 `GET https://api.inviplay.nl/payment/{{paymentId}}/status/user/{{userId}}`
