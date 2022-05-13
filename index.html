@@ -1459,12 +1459,10 @@ Use x-www-form-urlendcoded as body type and replace CLIENT_ID and CLIENT_SECRET 
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="s2">"paid"</span><span class="w">
 </span></code></pre></div>
 <blockquote>
-<p>Possible values that can be returned:
-<code>js
-open | failed | paid | canceled | expired | processing | refunded
-</code></p>
+<p>Possible values that can be returned:</p>
 </blockquote>
-
+<div class="highlight"><pre class="highlight plaintext"><code>open | failed | paid | canceled | expired | processing | refunded
+</code></pre></div>
 <p>Endpoint to get the status of a payment.</p>
 <h3 id='http-request'>HTTP Request</h3>
 <p><code>GET https://api.inviplay.nl/payment/{{paymentId}}/status/user/{{userId}}</code></p>
