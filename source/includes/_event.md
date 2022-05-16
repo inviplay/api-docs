@@ -175,14 +175,14 @@ Get a list of upcoming events only in a specific city.
 
 ### HTTP Request
 
-`GET https://api.inviplay.nl/event/upcoming/city={city}`
+`GET https://api.inviplay.nl/event/upcoming/{city}`
 
 ## Get only events of specific sport type
 
 Get a list of upcoming events that has a specific sport type. You can retrieve the list of Id's with the `GET /activity` endpoint.
 ### HTTP Request
 
-`GET https://api.inviplay.nl/event/upcoming/activity/1`
+`GET https://api.inviplay.nl/event/{city}/{activityId}`
 
 ## Get only events for specific target group
 
