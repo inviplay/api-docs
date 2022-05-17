@@ -1450,13 +1450,16 @@ Use x-www-form-urlendcoded as body type and replace CLIENT_ID and CLIENT_SECRET 
 <p>Endpoint to get a list of possible targetgroups</p>
 <h3 id='http-request'>HTTP Request</h3>
 <p><code>GET https://api.inviplay.nl/targetgroup</code></p>
-<h1 id='payment'>Payment</h1><h2 id='get-status-of-specific-payment-for-specific-user'>Get status of specific payment for specific user</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s1">'https://api.inviplay.nl/payment/{{paymentId}}/status/user/{{userId}}'</span> <span class="se">\</span>
+<h1 id='payment'>Payment</h1><h2 id='get-status-of-specific-payment-for-specific-user'>Get status of specific payment for specific user</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s1">'https://api.inviplay.nl/payment/{{paymentId}}/status/{{userId}}'</span> <span class="se">\</span>
   <span class="nt">-H</span> <span class="s1">'Authorization: Bearer ACCESS_TOKEN'</span> <span class="se">\</span>
 </code></pre></div>
 <blockquote>
 <p>Returns the status of a payment if exists</p>
 </blockquote>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="s2">"paid"</span><span class="w">
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w"> 
+  </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"paid"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
 </span></code></pre></div>
 <blockquote>
 <p>Possible values that can be returned:</p>
@@ -1465,7 +1468,7 @@ Use x-www-form-urlendcoded as body type and replace CLIENT_ID and CLIENT_SECRET 
 </code></pre></div>
 <p>Endpoint to get the status of a payment.</p>
 <h3 id='http-request'>HTTP Request</h3>
-<p><code>GET https://api.inviplay.nl/payment/{{paymentId}}/status/user/{{userId}}</code></p>
+<p><code>GET https://api.inviplay.nl/payment/{{paymentId}}/status/{{userId}}</code></p>
 
       </div>
       <div class="dark-box">
