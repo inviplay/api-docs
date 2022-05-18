@@ -207,7 +207,8 @@ curl -X POST 'https://api.inviplay.nl/event' \
     "start": "2021-07-16T08:00:00+00:00",
     "end": "2021-07-16T10:00:00+00:00",
     "maximumParticipants": 4,
-    "cost": 500
+    "cost": 500,
+    "imageBase64": ""iVBORw0KGgoAAAANSUhEUgAABLAAAAE2CAYAAABx8GutAAAAGXRFWHRTb2Z0d2FyZQBBZG......."
   }'
 ```
 > The above request returns the created event id:
@@ -243,6 +244,7 @@ Parameter | Required | Type | Default | Description
 `recurring` | optional | `String` | `None` | Possible values: `None`,`SevenDays`, `FourteenDays`, `OneMonth`, `SixMonth`,`OneYear`. 
 `targetGroup` | optional | `Number[]` | `null` | Array of targetGroup Id's
 `cost` | optional | int | `null` | The costs are handled in cents
+`imageBase64` | optional | `String` | `null` | Base64 string of image that needs to be uploaded
 
 ## Get event details
 
@@ -336,6 +338,7 @@ Parameter | Required | Type | Default | Description
 `maximumParticipants` | **required** | `Number` | - |
 `targetGroup` | optional | `Number[]` | `null` | Array of targetGroup Id's
 `cost` | optional | int | `null` | The costs are handled in cents
+`imageBase64` | optional | `String` | `null` | Base64 string of image that needs to be uploaded
 
 You have to PUT all of the above fields also if they are not changed, since the complete object will be replaced. If a field is not provided the default value will be stored.
 
