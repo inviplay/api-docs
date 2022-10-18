@@ -44,7 +44,8 @@ curl 'https://api.inviplay.nl/event/upcoming?limit=1' \
       "name": "Klimmen",
       "activityId": 39
     },
-    "recurring": "None"
+    "recurring": "None",
+    "tags": ["sia"]
   }
 ]
 ```
@@ -98,61 +99,8 @@ curl 'https://api.inviplay.nl/event/upcoming_by_date' \
         "name": "Voetbal"
     },
     "imageUrl": "",
-    "targetGroup": [2]
-  }
-]
-```
-
-This endpoint retrieves all upcoming events with every date as single object.
-
-### HTTP Request
-
-`GET https://api.inviplay.nl/event/upcoming_by_date`
-
-### Optional parameters
-Parameter | Required | Type
---------- | -------- | ----
-limit | optional | `number`
-skip | optional | `number`
-
-## Get all upcoming events with every date as single object
-
-```shell
-curl 'https://api.inviplay.nl/event/upcoming_by_date' \
-  -H 'Authorization: Bearer ACCESS_TOKEN'
-```
-
-> The above command returns JSON structured like this:
-
-```json
-[
-  {
-    "dateId": 2776,
-    "numberOfParticipants": 0,
-    "startDateTime": "2022-02-21T09:18:00+00:00",
-    "endDateTime": "2022-02-21T09:19:00+00:00",
-    "eventId": 824,
-    "cost": 0,
-    "name": "Padel recurring",
-    "description": "",
-    "maximumParticipants": 4,
-    "location": {
-        "id": 1,
-        "name": "23",
-        "address": "Oudegracht 143",
-        "postalCode": "3511 AJ",
-        "city": "Utrecht",
-        "coordinates": {
-            "lng": 5.117693,
-            "lat": 52.0913
-        }
-    },
-    "activity": {
-        "id": 1,
-        "name": "Voetbal"
-    },
-    "imageUrl": "",
-    "targetGroup": []
+    "targetGroup": [2],
+    "tags": ["sia"]
   }
 ]
 ```
@@ -209,6 +157,7 @@ curl -X POST 'https://api.inviplay.nl/event' \
     "maximumParticipants": 4,
     "cost": 500,
     "imageBase64": ""iVBORw0KGgoAAAANSUhEUgAABLAAAAE2CAYAAABx8GutAAAAGXRFWHRTb2Z0d2FyZQBBZG......."
+    "tags": ["sia"]
   }'
 ```
 > The above request returns the created event id:
@@ -245,6 +194,7 @@ Parameter | Required | Type | Default | Description
 `targetGroup` | optional | `Number[]` | `null` | Array of targetGroup Id's
 `cost` | optional | int | `null` | The costs are handled in cents
 `imageBase64` | optional | `String` | `null` | Base64 string of image that needs to be uploaded
+`tags` | optional | `String[]` | `null` | Array of free to choose strings
 
 ## Get event details
 
@@ -287,7 +237,8 @@ curl 'https://api.inviplay.nl/event/123' \
     "name": "Klimmen",
     "id": 39
   },
-  "recurring": "None"
+  "recurring": "None",
+  "tags": ["sia"]
 }
 ```
 
@@ -309,7 +260,8 @@ curl -X PUT 'http://api.inviplay.nl/event/123' \
     "locationId": 1,
     "maximumParticipants": 4,
     "targetGroup": [1],
-    "cost": 300
+    "cost": 300,
+    "tags": ["sia"]
 }'
 ```
 
@@ -339,6 +291,7 @@ Parameter | Required | Type | Default | Description
 `targetGroup` | optional | `Number[]` | `null` | Array of targetGroup Id's
 `cost` | optional | int | `null` | The costs are handled in cents
 `imageBase64` | optional | `String` | `null` | Base64 string of image that needs to be uploaded
+`tags` | optional | `String[]` | `null` | Array of free to choose strings
 
 You have to PUT all of the above fields also if they are not changed, since the complete object will be replaced. If a field is not provided the default value will be stored.
 
