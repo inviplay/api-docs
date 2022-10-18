@@ -356,9 +356,6 @@
                     <a href="#get-all-upcoming-events-with-every-date-as-single-object" class="toc-h2 toc-link" data-title="Get all upcoming events with every date as single object">Get all upcoming events with every date as single object</a>
                   </li>
                   <li>
-                    <a href="#get-all-upcoming-events-with-every-date-as-single-object-2" class="toc-h2 toc-link" data-title="Get all upcoming events with every date as single object">Get all upcoming events with every date as single object</a>
-                  </li>
-                  <li>
                     <a href="#get-only-events-in-specific-city" class="toc-h2 toc-link" data-title="Get only events in specific city">Get only events in specific city</a>
                   </li>
                   <li>
@@ -834,7 +831,8 @@ Use x-www-form-urlendcoded as body type and replace CLIENT_ID and CLIENT_SECRET 
       </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Klimmen"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"activityId"</span><span class="p">:</span><span class="w"> </span><span class="mi">39</span><span class="w">
     </span><span class="p">},</span><span class="w">
-    </span><span class="nl">"recurring"</span><span class="p">:</span><span class="w"> </span><span class="s2">"None"</span><span class="w">
+    </span><span class="nl">"recurring"</span><span class="p">:</span><span class="w"> </span><span class="s2">"None"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"tags"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"sia"</span><span class="p">]</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre></div>
@@ -893,7 +891,8 @@ Use x-www-form-urlendcoded as body type and replace CLIENT_ID and CLIENT_SECRET 
         </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Voetbal"</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="nl">"imageUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"targetGroup"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="w">
+    </span><span class="nl">"targetGroup"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">2</span><span class="p">],</span><span class="w">
+    </span><span class="nl">"tags"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"sia"</span><span class="p">]</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre></div>
@@ -919,76 +918,17 @@ Use x-www-form-urlendcoded as body type and replace CLIENT_ID and CLIENT_SECRET 
 <td><code>number</code></td>
 </tr>
 </tbody></table>
-<h2 id='get-all-upcoming-events-with-every-date-as-single-object-2'>Get all upcoming events with every date as single object</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s1">'https://api.inviplay.nl/event/upcoming_by_date'</span> <span class="se">\</span>
-  <span class="nt">-H</span> <span class="s1">'Authorization: Bearer ACCESS_TOKEN'</span>
-</code></pre></div>
-<blockquote>
-<p>The above command returns JSON structured like this:</p>
-</blockquote>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="nl">"dateId"</span><span class="p">:</span><span class="w"> </span><span class="mi">2776</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"numberOfParticipants"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"startDateTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-02-21T09:18:00+00:00"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"endDateTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-02-21T09:19:00+00:00"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"eventId"</span><span class="p">:</span><span class="w"> </span><span class="mi">824</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"cost"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Padel recurring"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"maximumParticipants"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"location"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"23"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Oudegracht 143"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"postalCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3511 AJ"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Utrecht"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"coordinates"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="nl">"lng"</span><span class="p">:</span><span class="w"> </span><span class="mf">5.117693</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"lat"</span><span class="p">:</span><span class="w"> </span><span class="mf">52.0913</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="nl">"activity"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Voetbal"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="nl">"imageUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"targetGroup"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">]</span><span class="w">
-</span></code></pre></div>
-<p>This endpoint retrieves all upcoming events with every date as single object.</p>
-<h3 id='http-request-3'>HTTP Request</h3>
-<p><code>GET https://api.inviplay.nl/event/upcoming_by_date</code></p>
-<h3 id='optional-parameters-3'>Optional parameters</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Required</th>
-<th>Type</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>limit</td>
-<td>optional</td>
-<td><code>number</code></td>
-</tr>
-<tr>
-<td>skip</td>
-<td>optional</td>
-<td><code>number</code></td>
-</tr>
-</tbody></table>
 <h2 id='get-only-events-in-specific-city'>Get only events in specific city</h2>
 <p>Get a list of upcoming events only in a specific city.</p>
-<h3 id='http-request-4'>HTTP Request</h3>
+<h3 id='http-request-3'>HTTP Request</h3>
 <p><code>GET https://api.inviplay.nl/event/upcoming/{city}</code></p>
 <h2 id='get-only-events-of-specific-sport-type'>Get only events of specific sport type</h2>
 <p>Get a list of upcoming events that has a specific sport type. You can retrieve the list of Id&#39;s with the <code>GET /activity</code> endpoint.</p>
-<h3 id='http-request-5'>HTTP Request</h3>
+<h3 id='http-request-4'>HTTP Request</h3>
 <p><code>GET https://api.inviplay.nl/event/{city}/{activityId}</code></p>
 <h2 id='get-only-events-for-specific-target-group'>Get only events for specific target group</h2>
 <p>Get a list of upcoming events that are for a specific target group. You can retrieve the list of Id&#39;s with the <code>GET /targetgroup</code> endpoint.</p>
-<h3 id='http-request-6'>HTTP Request</h3>
+<h3 id='http-request-5'>HTTP Request</h3>
 <p><code>GET https://api.inviplay.nl/event/upcoming/target_group/2</code></p>
 <h2 id='add-new-event'>Add new event</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST <span class="s1">'https://api.inviplay.nl/event'</span> <span class="se">\</span>
   <span class="nt">-H</span> <span class="s1">'Authorization: Bearer ACCESS_TOKEN'</span> <span class="se">\</span>
@@ -1004,6 +944,7 @@ Use x-www-form-urlendcoded as body type and replace CLIENT_ID and CLIENT_SECRET 
     "maximumParticipants": 4,
     "cost": 500,
     "imageBase64": ""iVBORw0KGgoAAAANSUhEUgAABLAAAAE2CAYAAABx8GutAAAAGXRFWHRTb2Z0d2FyZQBBZG......."
+    "tags": ["sia"]
   }'</span>
 </code></pre></div>
 <blockquote>
@@ -1021,7 +962,7 @@ Use x-www-form-urlendcoded as body type and replace CLIENT_ID and CLIENT_SECRET 
 <li>You can provide a list of target group id&#39;s.</li>
 <li>You can make a recurring event by specifing the <code>recurring</code> option. The API will create dates between the start date and end date looking at the value you provided in the <code>recurring</code> option. If you leave <code>recurring</code> empty, it will create one date with the provided start date and end date.</li>
 </ul>
-<h3 id='http-request-7'>HTTP Request</h3>
+<h3 id='http-request-6'>HTTP Request</h3>
 <p><code>POST https://api.inviplay.nl/event</code></p>
 <h3 id='request-body'>Request body</h3>
 <table><thead>
@@ -1117,6 +1058,13 @@ Use x-www-form-urlendcoded as body type and replace CLIENT_ID and CLIENT_SECRET 
 <td><code>null</code></td>
 <td>Base64 string of image that needs to be uploaded</td>
 </tr>
+<tr>
+<td><code>tags</code></td>
+<td>optional</td>
+<td><code>String[]</code></td>
+<td><code>null</code></td>
+<td>Array of free to choose strings</td>
+</tr>
 </tbody></table>
 <h2 id='get-event-details'>Get event details</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s1">'https://api.inviplay.nl/event/123'</span> <span class="se">\</span>
   <span class="nt">-H</span> <span class="s1">'Authorization: Bearer ACCESS_TOKEN'</span>
@@ -1155,11 +1103,12 @@ Use x-www-form-urlendcoded as body type and replace CLIENT_ID and CLIENT_SECRET 
     </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Klimmen"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">39</span><span class="w">
   </span><span class="p">},</span><span class="w">
-  </span><span class="nl">"recurring"</span><span class="p">:</span><span class="w"> </span><span class="s2">"None"</span><span class="w">
+  </span><span class="nl">"recurring"</span><span class="p">:</span><span class="w"> </span><span class="s2">"None"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"tags"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"sia"</span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>Get the details and dates of a specific event.</p>
-<h3 id='http-request-8'>HTTP Request</h3>
+<h3 id='http-request-7'>HTTP Request</h3>
 <p><code>GET https://api.inviplay.nl/event/{{eventId}}</code></p>
 <h2 id='update-event'>Update event</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> PUT <span class="s1">'http://api.inviplay.nl/event/123'</span> <span class="se">\</span>
   <span class="nt">-H</span> <span class="s1">'Authorization: Bearer ACCESS_TOKEN'</span>
@@ -1172,7 +1121,8 @@ Use x-www-form-urlendcoded as body type and replace CLIENT_ID and CLIENT_SECRET 
     "locationId": 1,
     "maximumParticipants": 4,
     "targetGroup": [1],
-    "cost": 300
+    "cost": 300,
+    "tags": ["sia"]
 }'</span>
 </code></pre></div>
 <blockquote>
@@ -1183,7 +1133,7 @@ Use x-www-form-urlendcoded as body type and replace CLIENT_ID and CLIENT_SECRET 
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>This request returns the updated event. </p>
-<h3 id='http-request-9'>HTTP Request</h3>
+<h3 id='http-request-8'>HTTP Request</h3>
 <p><code>PUT http://api.inviplay.nl/event/{{eventId}}</code></p>
 
 <p>The following fields are the ones that can be changed.</p>
@@ -1260,6 +1210,13 @@ Use x-www-form-urlendcoded as body type and replace CLIENT_ID and CLIENT_SECRET 
 <td><code>null</code></td>
 <td>Base64 string of image that needs to be uploaded</td>
 </tr>
+<tr>
+<td><code>tags</code></td>
+<td>optional</td>
+<td><code>String[]</code></td>
+<td><code>null</code></td>
+<td>Array of free to choose strings</td>
+</tr>
 </tbody></table>
 
 <p>You have to PUT all of the above fields also if they are not changed, since the complete object will be replaced. If a field is not provided the default value will be stored.</p>
@@ -1301,7 +1258,7 @@ Use x-www-form-urlendcoded as body type and replace CLIENT_ID and CLIENT_SECRET 
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>Endpoint to sign up or signout a user to one or more dates of one event</p>
-<h3 id='http-request-10'>HTTP Request</h3>
+<h3 id='http-request-9'>HTTP Request</h3>
 <p><code>PUT https://api.inviplay.nl/event/{{eventId}}/attendance</code></p>
 <h3 id='request-body-3'>Request body</h3>
 <table><thead>
