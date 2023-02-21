@@ -18,6 +18,7 @@ curl 'https://api.inviplay.nl/event/upcoming?limit=1' \
     "name": "Ga je mee klimmen?",
     "description": "Doe een keer vrijblijvend mee in de grootste klimhal van Arnhem",
     "cost": "5.00",
+    "costFeeIncluded": "5.50",
     "dates": [
       {
         "startDateTime": "2021-07-16T08:00:00+00:00",
@@ -80,6 +81,7 @@ curl 'https://api.inviplay.nl/event/upcoming_by_date' \
     "endDateTime": "2022-05-21T21:00:00+00:00",
     "eventId": 600,
     "cost": 500,
+    "costFeeIncluded": "5.50",
     "name": "Potje voetballen?",
     "description": "Doe je mee met een potje voetbal in de stad?",
     "maximumParticipants": 4,
@@ -192,7 +194,7 @@ Parameter | Required | Type | Default | Description
 `maximumParticipants` | **required** | `Number` | `null` |
 `recurring` | optional | `String` | `None` | Possible values: `None`,`SevenDays`, `FourteenDays`, `OneMonth`, `SixMonth`,`OneYear`. 
 `targetGroup` | optional | `Number[]` | `null` | Array of targetGroup Id's
-`cost` | optional | int | `null` | The costs are handled in cents
+`cost` | optional | int | `null` | The costs are handled in cents (cost is without fee, will be included based on business rules)
 `imageBase64` | optional | `String` | `null` | Base64 string of image that needs to be uploaded
 `tags` | optional | `String[]` | `null` | Array of free to choose strings
 
@@ -211,6 +213,7 @@ curl 'https://api.inviplay.nl/event/123' \
   "name": "Ga je mee klimmen?",
   "description": "Doe een keer vrijblijvend mee in de grootste klimhal van Arnhem",
   "cost": "5.00",
+  "costFeeIncluded": "5.50",
   "dates": [
     {
       "startDateTime": "2021-07-16T08:00:00+00:00",
@@ -289,7 +292,7 @@ Parameter | Required | Type | Default | Description
 `locationId` | **required** | `Number` | - | Id of location
 `maximumParticipants` | **required** | `Number` | - |
 `targetGroup` | optional | `Number[]` | `null` | Array of targetGroup Id's
-`cost` | optional | int | `null` | The costs are handled in cents
+`cost` | optional | int | `null` | The costs are handled in cents (cost is without fee, will be included based on business rules)
 `imageBase64` | optional | `String` | `null` | Base64 string of image that needs to be uploaded
 `tags` | optional | `String[]` | `null` | Array of free to choose strings
 
